@@ -40,7 +40,7 @@ The five files created by `datadrivencv` are:
 |`cv.rmd`    | An RMarkdown file with various sections filled in. Edit this to fit your personal needs. |
 |`dd_cv.css` | A custom set of CSS styles that build on the default `Pagedown` "resume" template. Again, edit these as desired.|
 | `render_cv.r` | Use this script to build your CV in both PDF and HTML at the same time. |
-| `cv_printing_functions.r` | A series of functions that perform the dirty work of turning your spreadsheet data into markdown/html and making that output work for PDF printing. E.g. Replacing markdown links with superscripts and a links section, tweaking the CSS to account for chrome printing quirks, etc.. |
+| `cv_printing_functions.r` | A series of functions that perform the dirty work of turning your spreadsheet data into markdown/html and making that output work for PDF printing. E.g. Replacing markdown links with superscripts and a links section, tweaking the CSS to account for chrome printing quirks, etc.. Here the section IDs, aside text block IDs and icons are defined. |
 
 ## Format of spreadsheets:
 

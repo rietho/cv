@@ -92,10 +92,16 @@ create_CV_object <-  function(data_location,
         no_start  & has_end ~ as.character(end),
         has_start & no_end  ~ paste("Current", "-", start),
         TRUE                ~ paste(end, "-", start)
+      ),
+      in_resume = dplyr::case_when(
+        stringr::str_to_upper(in_resume) == "TRUE" ~ TRUE,
+        stringr::str_to_upper(in_resume) == "FALSE" ~ FALSE,
+        TRUE ~ FALSE
       )
     ) %>%
     dplyr::arrange(desc(parse_dates(end))) %>%
-    dplyr::mutate_all(~ ifelse(is.na(.), 'N/A', .))
+    dplyr::mutate_all(~ ifelse(is.na(.), 'N/A', .)) %>%
+    dplyr::filter(in_resume)
 
   cv
 }
@@ -139,9 +145,9 @@ print_section <- function(cv, section_id, glue_template = "default"){
     glue_template <- "
 ### {title}
 
-{loc}
-
 {institution}
+
+{loc}
 
 {timeline}
 

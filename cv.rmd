@@ -11,6 +11,14 @@ output:
     self_contained: true
 ---
 
+<!--
+TODO
+* change language skills to skills only
+* add languages extra
+* adjust fonts, colors and style
+* find a picture
+-->
+
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
   results='asis', 
@@ -46,12 +54,44 @@ Aside
 ================================================================================
 
 <!-- Swap image with your preferred logo -->
-![logo](https://cran.r-project.org/Rlogo.svg){width=100%}
+<!--![logo](https://cran.r-project.org/Rlogo.svg){width=100%}-->
+```{r echo=FALSE, fig.asp=1, message=FALSE, warning=FALSE}
+# based on R Graph Galary
+# https://www.r-graph-gallery.com/294-basic-ridgeline-plot.html#
+
+# library
+library(ggridges)
+library(ggplot2)
+library(viridis)
+
+sidebar_color <- "#f7fbff"
+
+# Plot
+ggplot(lincoln_weather, aes(x = `Mean Temperature [F]`, y = `Month`, fill = ..x..)) +
+    geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
+    scale_fill_viridis(name = "Temp. [F]", option = "C") +
+    #labs(title = 'Temperatures in Lincoln NE in 2016') +
+    theme_minimal() +
+    theme(
+        legend.position="none",
+        panel.spacing = unit(0.1, "lines"),
+        strip.text.x = element_text(size = 8),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        plot.background = element_rect(fill = sidebar_color, colour = NA),
+        panel.background = element_rect(fill = sidebar_color,
+                                colour = sidebar_color)
+    ) + 
+    labs(y = NULL, x = NULL)
+```
+
 
 
 ```{r}
 if(params$pdf_mode){
-  cat("View this CV online with links at *https://my.cv.pdf/tbd*")
+  cat("View an online version of my CV at *https://my.cv.pdf/tbd*")
 } else {
   cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://my.cv.pdf/tbd)")
 }
@@ -80,7 +120,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
 
-The source code is available [on github.com/nstrayer/cv](https://my.cv.source/tbd).
+The source code is available [on github.com/rietho/cv](https://github.com/rietho/cv).
 
 Last updated on `r Sys.Date()`.
 
@@ -98,9 +138,33 @@ CV %<>% print_text_block("intro")
 ```
 
 
+Industry Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+<!--!
+::: aside
+```{r}
+CV %<>% print_text_block('industy_experience_aside')
+```
+:::
+-->
+
+```{r}
+CV %<>% print_section('industry_positions')
+```
+
+
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
+
+<!--!
+::: aside
+```{r}
+CV %<>% print_text_block('education_aside')
+```
+:::
+-->
 
 ```{r}
 CV %<>% print_section('education')
@@ -108,94 +172,8 @@ CV %<>% print_section('education')
 
 
 
-Research Experience {data-icon=laptop}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('research_positions')
-```
-
-
-
-Industry Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
-
-::: aside
-```{r}
-CV %<>% print_text_block('industy_experience_aside')
-```
-:::
-
-```{r}
-CV %<>% print_section('industry_positions')
-```
-
-<!-- These breaks just force a new page so section doesnt get cut off -->
+<!-- These breaks just force a new page so section doesnt get cut off 
 <br>
 <br>
 <br>
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-::: aside
-```{r}
-CV %<>% print_text_block('teaching_experience_aside')
-```
-:::
-
-```{r}
-CV %<>% print_section('teaching_positions')
-```
-
-
-
-Selected Data Science Writing {data-icon=chart-line}
---------------------------------------------------------------------------------
-
-::: aside
-```{r}
-CV %<>% print_text_block('data_science_writing_aside')
-```
-:::
-
-```{r}
-CV %<>% print_section('data_science_writings')
-```
-
-
-
-Selected Press (About)  {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('about_me_press')
-```
-
-
-<br>
-<br>
-
-
-Selected Press (By)  {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('by_me_press')
-```
-
-
-
-Selected Publications, Posters, and Talks {data-icon=book}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('academic_articles')
-```
-
-
-
-```{r}
-CV %<>% print_links()
-```
-
+-->
