@@ -15,8 +15,9 @@ output:
 TODO
 * change language skills to skills only
 * add languages extra
-* adjust fonts, colors and style
-* find a picture
+* find a picture: QR to Linkedin
+* get sutitle to Gsheet
+* get formerly to Gsheet + CSS to .CSS file
 * identify and define process for tailor CV for specific applications
 * version code?
   * that way tailored CVs could relate to a specific CV
@@ -140,6 +141,7 @@ Main
 
 Thomas Lieb {#title}
 --------------------------------------------------------------------------------
+<p style="font-size:10px; color:#a8a7a7; margin-top: -5px;">formerly: Thomas Riebenbauer</p>
 
 ### Impact-driven Data Enthusiast
 
@@ -180,7 +182,20 @@ CV %<>% print_text_block('education_aside')
 -->
 
 ```{r}
-CV %<>% print_section('education')
+glue_template <- "
+### {title}
+
+{institution}
+
+{loc}
+
+{timeline}
+
+:::concise
+{description_bullets}
+:::
+\n\n\n"
+CV %<>% print_section('education', glue_template = glue_template)
 ```
 
 
