@@ -31,9 +31,16 @@ create_CV_object <-  function(data_location,
       # work if your sheet has sharing set to "anyone with link can view"
       googlesheets4::gs4_deauth()
     } else {
-      # My info is in a public sheet so there's no need to do authentication but if you want
-      # to use a private sheet, then this is the way you need to do it.
+      # if you want to use a private sheet, then this is the way you need to do it.
       # designate project-specific cache so we can render Rmd without problems
+      # code to generate .secrets:
+      # # designate project-specific cache
+      # options(gargle_oauth_cache = “.secrets”)
+      # # check the value of the option, if you like
+      # gargle::gargle_oauth_cache()
+      # # trigger auth on purpose to store a token in the specified cache a
+      # # browser will be opened
+      # googlesheets4::sheets_auth()
       options(gargle_oauth_cache = ".secrets")
     }
 
@@ -139,6 +146,11 @@ sanitize_links <- function(cv, text){
 
 #' @description Take a position data frame and the section id desired and prints the section to markdown.
 #' @param section_id ID of the entries section to be printed as encoded by the `section` column of the `entries` table
+#'
+#' Description could be made concise (i.e. 2 columns) via:
+#' :::concise
+#' {description_bullets}
+#' :::
 print_section <- function(cv, section_id, glue_template = "default"){
 
   if(glue_template == "default"){
