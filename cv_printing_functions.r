@@ -48,13 +48,13 @@ create_CV_object <-  function(data_location,
       googlesheets4::read_sheet(data_location, sheet = sheet_id, skip = 1, col_types = "c")
     }
     cv$entries_data  <- read_gsheet(sheet_id = "entries")
-    cv$skills        <- read_gsheet(sheet_id = "language_skills")
+    cv$skills        <- read_gsheet(sheet_id = "skills")
     cv$text_blocks   <- read_gsheet(sheet_id = "text_blocks")
     cv$contact_info  <- read_gsheet(sheet_id = "contact_info")
   } else {
     # Want to go old-school with csvs?
     cv$entries_data <- readr::read_csv(paste0(data_location, "entries.csv"), skip = 1)
-    cv$skills       <- readr::read_csv(paste0(data_location, "language_skills.csv"), skip = 1)
+    cv$skills       <- readr::read_csv(paste0(data_location, "skills.csv"), skip = 1)
     cv$text_blocks  <- readr::read_csv(paste0(data_location, "text_blocks.csv"), skip = 1)
     cv$contact_info <- readr::read_csv(paste0(data_location, "contact_info.csv"), skip = 1)
   }
@@ -184,6 +184,17 @@ print_section <- function(cv, section_id, glue_template = "default"){
   invisible(strip_res$cv)
 }
 
+#' @description Prints subtitle
+print_subtitle <- function(cv){
+  text_subtitle <- dplyr::filter(cv$text_blocks, loc == "subtitle") %>%
+    dplyr::pull(text)
+
+  if (length(text_subtitle) > 0) {
+    cat(paste0("### ", text_subtitle))
+  }
+
+  invisible(cv)
+}
 
 
 #' @description Prints out text block identified by a given label.
@@ -203,7 +214,7 @@ print_text_block <- function(cv, label){
 
 #' @description Construct a bar chart of skills
 #' @param out_of The relative maximum for skills. Used to set what a fully filled in skill bar is.
-print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_background = "#d9d9d9", glue_template = "default"){
+print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_background = "#d9d9d9", glue_template = "default", category_filter = "technical"){
 
   if(glue_template == "default"){
     glue_template <- "
@@ -215,13 +226,60 @@ print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_backgrou
 >{skill}</div>"
   }
   cv$skills %>%
-    dplyr::mutate(width_percent = round(100*as.numeric(level)/out_of)) %>%
+    dplyr::filter(category == category_filter) %>%
+    dplyr::arrange(order) %>%
+    dplyr::mutate(width_percent = round(100*as.numeric(level_num)/out_of)) %>%
     glue::glue_data(glue_template) %>%
     print()
 
   invisible(cv)
 }
 
+
+#' @description Construct table of language skills
+print_skills_table <- function(cv, glue_template = "default", category_filter = "language"){
+
+  if(glue_template == "default"){
+    glue_template_pre <- "<table class='skill_table'>
+"
+    glue_template <- "
+<tr>
+    <td style='padding-right:7px;'>{skill}</td>
+    <td style='padding-left:7px;'>{level_cat}</td>
+</tr>"
+    glue_template_post <- "
+</table>"
+  } else {
+    glue_template_pre <- glue_template_post <- ""
+  }
+  table_txt <- cv$skills %>%
+    dplyr::filter(category == category_filter) %>%
+    dplyr::arrange(order) %>%
+    glue::glue_data(glue_template)
+  print(glue::glue(glue_template_pre, paste0(table_txt, collapse = "\n"), glue_template_post))
+
+  invisible(cv)
+}
+
+#' @description Construct a text of skills
+print_skills_text <- function(cv, glue_template = "default", category_filter = "other_tech"){
+
+  if(glue_template == "default"){
+    glue_template_pre <- "<p style='margin-top: 5px;'>"
+    glue_template <- "{skill}"
+    glue_template_post <- "</p>"
+  } else {
+    glue_template_pre <- glue_template_post <- ""
+  }
+  table_txt <- cv$skills %>%
+    dplyr::filter(category == category_filter) %>%
+    dplyr::arrange(order) %>%
+    glue::glue_data(glue_template) %>%
+    glue::glue_collapse(", ")
+  print(glue::glue(glue_template_pre, table_txt, glue_template_post))
+
+  invisible(cv)
+}
 
 
 #' @description List of all links in document labeled by their superscript integer.
@@ -249,14 +307,18 @@ Links {data-icon=link}
 
 #' @description Contact information section with icons
 print_contact_info <- function(cv){
-  glue::glue_data(
+  txt <- glue::glue_data(
     cv$contact_info,
     "<i class='fa fa-{icon}'></i> [{contact}]({link})<br>"
   ) %>%
     # remove empty links
     stringr::str_replace("\\[(.*)\\]\\(NA\\)", "\\1") %>%
-    glue::as_glue() %>%
-    print()
+    glue::as_glue()
+  print(glue::glue(
+    '<p style="line-height:1.6;margin-top:5px">',
+    paste0(txt, collapse = "\n"),
+    '</p>'
+    ))
 
   invisible(cv)
 }

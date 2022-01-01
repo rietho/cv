@@ -11,16 +11,15 @@ output:
     self_contained: true
 ---
 
+```{=html}
 <!--
 TODO
-* change language skills to skills only
-* add languages extra
-* find a picture: QR to Linkedin
 * get sutitle to Gsheet
 * get formerly to Gsheet + CSS to .CSS file
 * identify and define process for tailor CV for specific applications
 * version code?
   * that way tailored CVs could relate to a specific CV
+* ?find a picture: QR to Linkedin
 
 # Tailoring CV
 
@@ -28,6 +27,8 @@ Ideas
 * copy & adjust spreadsheet and run script by adjusting spreadsheet link
 * if code needs to be adjusted, could be done via a branch or copy of code saved along with CV
 -->
+```
+
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
@@ -69,41 +70,20 @@ if(params$pdf_mode) {
 Aside
 ================================================================================
 
-<!-- Swap image with your preferred logo -->
-<!--![logo](https://cran.r-project.org/Rlogo.svg){width=100%}-->
-```{r eval=FALSE, fig.asp=1, message=FALSE, warning=FALSE, include=FALSE}
-# based on R Graph Galary
-# https://www.r-graph-gallery.com/294-basic-ridgeline-plot.html#
-
-# library
-library(ggridges)
-library(ggplot2)
-library(viridis)
-
-sidebar_color <- "#f2f2f1"
-
-# Plot
-ggplot(lincoln_weather, aes(x = `Mean Temperature [F]`, y = `Month`, fill = ..x..)) +
-    geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
-    scale_fill_viridis(name = "Temp. [F]", option = "C") +
-    #labs(title = 'Temperatures in Lincoln NE in 2016') +
-    theme_minimal() +
-    theme(
-        legend.position="none",
-        panel.spacing = unit(0.1, "lines"),
-        strip.text.x = element_text(size = 8),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks.y=element_blank(),
-        plot.background = element_rect(fill = sidebar_color, colour = NA),
-        panel.background = element_rect(fill = sidebar_color,
-                                colour = sidebar_color)
-    ) + 
-    labs(y = NULL, x = NULL)
+```{r generate_qr_code, include=FALSE}
+if (FALSE) {
+  require(qrcode)
+  link <- "https://www.linkedin.com/in/thomas-lieb-158576a0/"
+  qr <- qr_code(link)
+  generate_svg(qr, "frame.svg", background = "#f2f2f1")
+}
 ```
 
 
+<!-- Swap image with your preferred logo -->
+<center>
+[![logo](frame.svg){width=75%}](https://www.linkedin.com/in/thomas-lieb-158576a0/)
+</center>
 
 ```{r}
 if(params$pdf_mode){
@@ -116,53 +96,72 @@ if(params$pdf_mode){
 Contact {#contact}
 --------------------------------------------------------------------------------
 
-<p style="line-height:1.6;margin-top:5px">
 ```{r}
 CV %>% print_contact_info()
 ```
-<p>
 
+Attributes {#attributes}
+--------------------------------------------------------------------------------
 
-Language Skills {#skills}
+```{r}
+CV %>% print_skills_text(category_filter = "attributes")
+```
+
+Main Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
 
 ```{r}
 CV %>% print_skill_bars(bar_color = "#274b9f")
 ```
 
+Other Tech Skills {#other_tech_skills}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %>% print_skills_text(category_filter = "other_tech")
+```
+
+
+Languages {#languages}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %>% print_skills_table()
+```
 
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
+Made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
 
 The source code is available [on github.com/rietho/cv](https://github.com/rietho/cv).
 
 Last updated on `r Sys.Date()`.
 
 
+# Main
 
-Main
-================================================================================
+## Thomas Lieb {#title}
 
-Thomas Lieb {#title}
---------------------------------------------------------------------------------
-<p style="font-size:10px; color:#a8a7a7; margin-top: -5px;">formerly: Thomas Riebenbauer</p>
+```{=html}
+<p style="font-size:10px; color:#a8a7a7; margin-top: -5px;">
+formerly: Thomas Riebenbauer
+</p>
+````
 
-### Impact-driven Data Enthusiast
-
+```{r}
+CV %<>% print_subtitle()
+```
 
 ```{r}
 # Note the special double pipe so we modify the CV object in place
 CV %<>% print_text_block("intro") 
-##a8a7a7
 ```
 
+## Industry Experience {data-icon="suitcase"}
 
-Industry Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
-
+```{=html}
 <!--!
 ::: aside
 ```{r}
@@ -170,16 +169,15 @@ CV %<>% print_text_block('industy_experience_aside')
 ```
 :::
 -->
+```
 
 ```{r}
 CV %<>% print_section('industry_positions')
 ```
 
+## Education {data-icon="graduation-cap" data-concise="true"}
 
-
-Education {data-icon=graduation-cap data-concise=true}
---------------------------------------------------------------------------------
-
+```{=html}
 <!--!
 ::: aside
 ```{r}
@@ -187,6 +185,7 @@ CV %<>% print_text_block('education_aside')
 ```
 :::
 -->
+```
 
 ```{r}
 glue_template <- "
@@ -205,10 +204,10 @@ glue_template <- "
 CV %<>% print_section('education', glue_template = glue_template)
 ```
 
-
-
+```{=html}
 <!-- These breaks just force a new page so section doesnt get cut off 
 <br>
 <br>
 <br>
 -->
+```

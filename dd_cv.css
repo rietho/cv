@@ -1,4 +1,3 @@
-/*@import url("https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap");*/
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 /* Main text is monserrat*/
@@ -17,9 +16,26 @@ h3 {
   color: #274b9f; /*#000;*/
 }
 
+/* reduce padding of main section*/
+[data-id="main"] {
+  padding: 0 0.4in 0 0;
+}
+/* header in main section to color grey */
 [data-id="main"] h2 {
   color: #a8a7a7;
 }
+/* adjust title section within main section to right align with timeline text*/
+/* right and left padding to sun up to zero to align with main section */
+[data-id="title"] {
+  margin: 0 0.5in 0.0 -0.5in;
+}
+
+/*
+.main-block {
+  margin-top: 0;
+  margin-left: -0.1in;
+}
+*/
 
 /* When in PDF export mode make sure superscripts are nice and small and italic */
 sup {
@@ -35,16 +51,17 @@ sup {
 * {
   /* Override default right margin for sidebar*/
   --pagedjs-margin-right: 0.2in;
-  --pagedjs-margin-left: 0.2in;
+  --pagedjs-margin-left: 0.3in;
+  --pagedjs-margin-top: 0.4in;
 }
 
 /* Customize some of the sizing variables */
 :root {
   --sidebar-width: 12rem; /* Shrink sidebar width  */
-  --sidebar-background-color: #f2f2f1; /* #f7fbff; */ /* Make sidebar blue */
+  --sidebar-background-color: #f2f2f1; /* Make sidebar grey */
   --sidebar-horizontal-padding: 0.01in; /* Reduce sidebar padding */
   --decorator-outer-dim: 10px; /* Make position deliniating circles larger */
-  --decorator-border: 2px solid #9cbaff /* #bdd7e7; */ /* Make timeline a blue as well*/
+  --decorator-border: 2px solid #e0e0e0 /* Make timeline a grey as well*/
 }
 
 .details .place {
@@ -80,6 +97,11 @@ sup {
   padding-left: 1rem;
 }
 
+/* reduce distnce between sections in side pane */
+.aside .level2 {
+  margin-top: 0.3in;
+}
+
 .aside li::before {
   position: relative;
   margin-left: -4.25pt;
@@ -89,8 +111,12 @@ sup {
 /* Make sure elements in asside are centered and have a nice small text */
 .aside {
   width: calc(var(--sidebar-width) + 9px);
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
   line-height: 1.2;
   font-size: 0.75rem;
+  margin-top: -0.1in;
 }
 
 /* Make little circle outline be a light blue */
@@ -131,4 +157,16 @@ sup {
   padding: 0.5rem;
   margin: 0.5rem;
   box-shadow: 1px 1px 4px black;
+}
+
+/* Style for skill table*/
+.skill_table {
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+.skill_table tr td {
+  border-right: 2px solid #d9d9d9;
+}
+.skill_table tr td:last-child {
+  border: none;
 }
