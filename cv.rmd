@@ -40,7 +40,7 @@ library(magrittr) # For the pipe
 source("cv_printing_functions.r")
 
 # Read in all data and initialize a CV printer object
-offline <- T
+offline <- F
 if (!offline) {
   CV <- create_CV_object(
   data_location = "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460",  
@@ -100,12 +100,14 @@ Contact {#contact}
 CV %>% print_contact_info()
 ```
 
+<!--
 Attributes {#attributes}
 --------------------------------------------------------------------------------
 
 ```{r}
 CV %>% print_skills_text(category_filter = "attributes")
 ```
+-->
 
 Main Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
@@ -135,7 +137,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
 
-The source code is available [on github.com/rietho/cv](https://github.com/rietho/cv).
+Source code available on [github](https://github.com/rietho/cv).
 
 Last updated on `r Sys.Date()`.
 
@@ -159,7 +161,7 @@ CV %<>% print_subtitle()
 CV %<>% print_text_block("intro") 
 ```
 
-## Industry Experience {data-icon="suitcase"}
+## Industry Experience (Highlights) {data-icon="suitcase"}
 
 ```{=html}
 <!--!
@@ -175,7 +177,7 @@ CV %<>% print_text_block('industy_experience_aside')
 CV %<>% print_section('industry_positions')
 ```
 
-## Education {data-icon="graduation-cap" data-concise="true"}
+## Education (Highlights) {data-icon="graduation-cap" data-concise="true"}
 
 ```{=html}
 <!--!
