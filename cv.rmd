@@ -14,12 +14,9 @@ output:
 ```{=html}
 <!--
 TODO
-* get sutitle to Gsheet
-* get formerly to Gsheet + CSS to .CSS file
 * identify and define process for tailor CV for specific applications
 * version code?
   * that way tailored CVs could relate to a specific CV
-* ?find a picture: QR to Linkedin
 
 # Tailoring CV
 
@@ -87,9 +84,9 @@ if (FALSE) {
 
 ```{r}
 if(params$pdf_mode){
-  cat("View an online version of my CV at *https://my.cv.pdf/tbd*")
+  cat("[View an online version of my CV](https://htmlpreview.github.io/?https://github.com/rietho/cv/blob/main/cv.html)")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://my.cv.pdf/tbd)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rietho/cv/raw/main/cv.pdf)")
 }
 ```
 
