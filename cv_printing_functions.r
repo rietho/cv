@@ -59,7 +59,6 @@ create_CV_object <-  function(data_location,
     cv$contact_info <- readr::read_csv(paste0(data_location, "contact_info.csv"), skip = 1)
   }
 
-
   extract_year <- function(dates){
     date_year <- stringr::str_extract(dates, "(20|19)[0-9]{2}")
     date_year[is.na(date_year)] <- lubridate::year(lubridate::ymd(Sys.Date())) + 10
@@ -108,6 +107,17 @@ create_CV_object <-  function(data_location,
     ) %>%
     dplyr::arrange(desc(parse_dates(end))) %>%
     dplyr::mutate_all(~ ifelse(is.na(.), 'N/A', .)) %>%
+    dplyr::filter(in_resume)
+
+  # filter skills
+  cv$skills %<>%
+    dplyr::mutate(
+      in_resume = dplyr::case_when(
+        stringr::str_to_upper(in_resume) == "TRUE" ~ TRUE,
+        stringr::str_to_upper(in_resume) == "FALSE" ~ FALSE,
+        TRUE ~ FALSE
+      )
+    ) %>%
     dplyr::filter(in_resume)
 
   cv
