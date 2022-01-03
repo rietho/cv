@@ -15,12 +15,10 @@ output:
 <!--
 TODO
 * identify and define process for tailor CV for specific applications
-* version code?
-  * that way tailored CVs could relate to a specific CV
+* make description not define the list, but leave it to the text
 
 # Tailoring CV
 
-Ideas
 * copy & adjust spreadsheet and run script by adjusting spreadsheet link
 * if code needs to be adjusted, could be done via a branch or copy of code saved along with CV
 -->
@@ -33,11 +31,16 @@ knitr::opts_chunk$set(
   echo = FALSE
 )
 
+library(conflicted)
 library(magrittr) # For the pipe
-source("cv_printing_functions.r")
+require(here)
+
+here::i_am("cv.rmd")
+
+source(here::here("cv_printing_functions.r"))
 
 # Read in all data and initialize a CV printer object
-offline <- F
+offline <- T
 if (!offline) {
   CV <- create_CV_object(
   data_location = "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460",  
@@ -48,6 +51,10 @@ if (!offline) {
 } else {
   CV <- readRDS("CV.RDS")
 }
+
+# read in CSS file to extract colors from
+require(cssparser)
+css_root <- cssparser::read_css("dd_cv.css")$`:root`
 ```
 
 
@@ -72,7 +79,9 @@ if (FALSE) {
   require(qrcode)
   link <- "https://www.linkedin.com/in/thomas-lieb-158576a0/"
   qr <- qr_code(link)
-  generate_svg(qr, "frame.svg", background = "#f2f2f1")
+  generate_svg(
+    qr, "frame.svg", background = css_root$`--sidebar-background-color`
+    )
 }
 ```
 
@@ -110,7 +119,9 @@ Main Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %>% print_skill_bars(bar_color = "#274b9f")
+CV %>% print_skill_bars(
+  bar_color = css_root$`--main-color-headers`, 
+  bar_background = css_root$`--main-color-skillbar-background`)
 ```
 
 Other Tech Skills {#other_tech_skills}
@@ -143,11 +154,10 @@ Last updated on `r Sys.Date()`.
 
 ## Thomas Lieb {#title}
 
-```{=html}
-<p style="font-size:10px; color:#a8a7a7; margin-top: -5px;">
+<p class="formerly">
 formerly: Thomas Riebenbauer
 </p>
-````
+
 
 ```{r}
 CV %<>% print_subtitle()
