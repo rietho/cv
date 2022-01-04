@@ -13,11 +13,7 @@ output:
 
 ```{=html}
 <!--
-TODO
-* identify and define process for tailor CV for specific applications
-* make description not define the list, but leave it to the text
-
-# Tailoring CV
+Tailoring CV for specific applications
 
 * copy & adjust spreadsheet and run script by adjusting spreadsheet link
 * if code needs to be adjusted, could be done via a branch or copy of code saved along with CV
@@ -106,15 +102,6 @@ Contact {#contact}
 CV %>% print_contact_info()
 ```
 
-<!--
-Attributes {#attributes}
---------------------------------------------------------------------------------
-
-```{r}
-CV %>% print_skills_text(category_filter = "attributes")
-```
--->
-
 Main Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
 
@@ -129,6 +116,14 @@ Other Tech Skills {#other_tech_skills}
 
 ```{r}
 CV %>% print_skills_text(category_filter = "other_tech")
+```
+
+
+Attributes {#attributes}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %>% print_skills_text(category_filter = "attributes")
 ```
 
 

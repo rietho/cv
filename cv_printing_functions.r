@@ -78,14 +78,17 @@ create_CV_object <-  function(data_location,
 
   # Clean up entries dataframe to format we need it for printing
   cv$entries_data %<>%
+    dplyr::mutate(dplyr::across(
+      dplyr::starts_with("description"),
+      ~ dplyr::if_else(stringr::str_starts(.x, "<exclude>"), NA_character_, .x)
+    )) %>%
     tidyr::unite(
       tidyr::starts_with('description'),
       col = "description_bullets",
-      sep = "\n- ",
+      sep = "\n",
       na.rm = TRUE
     ) %>%
     dplyr::mutate(
-      description_bullets = ifelse(description_bullets != "", paste0("- ", description_bullets), ""),
       start = ifelse(start == "NULL", NA, start),
       end = ifelse(end == "NULL", NA, end),
       start_year = extract_year(start),
