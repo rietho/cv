@@ -1,8 +1,18 @@
 
 # My CV created using R
 
-The goal of datadrivencv is to ease the burden of maintaining a CV by
-separating the content from the output by treating entries as data.
+This CV is generated using the R package
+[pagedown](https://rstudio.github.io/pagedown/), which uses the
+JavaScript library [paged.js](https://www.pagedjs.org/). This allows
+creating a CV based on R Markdown using markdown and HTML making it very
+flexible.
+
+In addition, this CV is based on pretty much all content being stored in
+a Google Sheet, thus separating content and styling.
+
+Here’s an example of how my CV looks like:
+
+<img src="cv_readme.png" alt="CV Example" width="66%"/>
 
 ## Acknowledgements
 
@@ -27,16 +37,14 @@ seemed like a great approach as it allows me to:
 
 # Using it
 
-The five files created by `datadrivencv` are:
+Feel free to re use what I created. I made a bunch of customisations
+compared to what `datadrivencv` gives you. I’m planning to write a blog
+post about that on my blog <https://gapthemind.info>
 
-| File                      | Description                                                                                                                                                                                                                                                                            |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cv.rmd`                  | An RMarkdown file with various sections filled in. Edit this to fit your personal needs.                                                                                                                                                                                               |
-| `dd_cv.css`               | A custom set of CSS styles that build on the default `Pagedown` “resume” template. Again, edit these as desired.                                                                                                                                                                       |
-| `render_cv.r`             | Use this script to build your CV in both PDF and HTML at the same time.                                                                                                                                                                                                                |
-| `cv_printing_functions.r` | A series of functions that perform the dirty work of turning your spreadsheet data into markdown/html and making that output work for PDF printing. E.g. Replacing markdown links with superscripts and a links section, tweaking the CSS to account for chrome printing quirks, etc.. |
+You might fork my repo, copy my spreadhseet, fill it with your own data
+and with that render your own CV.
 
-## Format of spreadsheets:
+## Format of spreadsheets
 
 The data is stored in a [Google
 Sheet](https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460)
@@ -47,22 +55,27 @@ are needed and their columns are:
 
 ### `entries`
 
-| Column          | Description                                                                                                                                                             |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `section`       | Where in your CV this entry belongs                                                                                                                                     |
-| `title`         | Main title of the entry                                                                                                                                                 |
-| `loc`           | Location the entry occured                                                                                                                                              |
-| `institution`   | Primary institution affiliation for entry                                                                                                                               |
-| `start`         | Start date of entry (year). Can be left blank for single point events like a manuscript.                                                                                |
-| `end`           | End year of entry. Set to “current” if entry is still ongoing.                                                                                                          |
-| `description_*` | Each description column is a separate bullet point for the entry. If you need more description bullet points simply add a new column with title “description\_{4,5,..}” |
+| Column          | Description                                                                                                                                            |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `section`       | Where in your CV this entry belongs                                                                                                                    |
+| `title`         | Main title of the entry                                                                                                                                |
+| `loc`           | Location the entry occured                                                                                                                             |
+| `institution`   | Primary institution affiliation for entry                                                                                                              |
+| `start`         | Start date of entry (year). Can be left blank for single point events like a manuscript.                                                               |
+| `end`           | End year of entry. Set to “current” if entry is still ongoing.                                                                                         |
+| `description_*` | All description columns are pasted togehter. You can include markdown and html formatting in here. A cell starting with `<exclude>` is not considered. |
+| `in_resume`     | A filter variable that is used to decide if entry is in the resume.                                                                                    |
 
-### `language_skills`
+### `skills`
 
-| Column  | Description                     |
-|---------|---------------------------------|
-| `skill` | Name of language                |
-| `level` | Relative numeric level of skill |
+| Column      | Description                                                                         |
+|-------------|-------------------------------------------------------------------------------------|
+| `order`     | Order                                                                               |
+| `category`  | Category of skill. Currently one of: technical, language, other\_tech or attributes |
+| `skill`     | Name of skill                                                                       |
+| `level_num` | Relative numeric level of skill. Applies only to category “technical”               |
+| `level_cat` | Categorical level of skill. Applies only to categoriy “language”                    |
+| `in_resume` | A filter variable that is used to decide if entry is in the resume.                 |
 
 ### `text_blocks`
 
@@ -71,13 +84,14 @@ are needed and their columns are:
 | `loc`  | Id used for finding text block                        |
 | `text` | Contents of text block. Supports markdown formatting. |
 
-### `contact info`
+### `contact_info`
 
 | Column    | Description                                                 |
 |-----------|-------------------------------------------------------------|
 | `loc`     | Id of contact section                                       |
 | `icon`    | Icon used from font-awesome 4 to label this contact section |
 | `contact` | The actual value written for the contact entry              |
+| `link`    | An optional link for the contact entry                      |
 
 # Rendering your CV
 

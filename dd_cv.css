@@ -1,19 +1,60 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-/* Main text is monserrat*/
+* {
+  /* Override default margins for sidebar*/
+  --pagedjs-margin-right: 0.2in;
+  --pagedjs-margin-left: 0.3in;
+  --pagedjs-margin-top: 0.4in;
+  --pagedjs-margin-bottom: 0.5in;
+}
+
+/* Customize some of the sizing variables */
+:root {
+  --page-width: 210mm;
+
+  --sidebar-width: 12rem; /* Shrink sidebar width  */
+  --sidebar-background-color: #f2f2f1; /* Make sidebar grey */
+  --sidebar-horizontal-padding: 0.01in; /* Reduce sidebar padding */
+  --decorator-outer-dim: 10px; /* Make position deliniating circles larger */
+  --decorator-border: 2px solid #e0e0e0; /* Make timeline a grey as well*/
+
+  /* define colors */
+  --main-color-headers: #274b9f;
+  --main-color-timeline-headers: #a8a7a7;
+  --main-color-skillbar-background: #d9d9d9;
+}
+
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif; /*"Montserrat", sans-serif;*/
   font-weight: 300;
   line-height: 1.3;
   color: #444;
+}
+
+@page {
+  size: a4 portrait;
 }
 
 /* Give headers playfair font */
 h1,
 h2,
 h3 {
-  font-family: "Playfair Display", serif;
-  color: #000;
+  font-family: "Roboto", sans-serif; /*"Playfair Display", serif;*/
+  color: var(--main-color-headers);
+}
+
+/* reduce padding of main section*/
+[data-id="main"] {
+  padding: 0 0.4in 0 0;
+}
+/* header in main section to color grey */
+[data-id="main"] h2 {
+  color: var(--main-color-timeline-headers);
+}
+/* adjust title section within main section to right align with timeline text*/
+/* right and left padding to sun up to zero to align with main section */
+[data-id="title"] {
+  margin: 0 0.5in 0.0 -0.5in;
 }
 
 /* When in PDF export mode make sure superscripts are nice and small and italic */
@@ -27,27 +68,23 @@ sup {
   break-inside: avoid;
 }
 
-* {
-  /* Override default right margin for sidebar*/
-  --pagedjs-margin-right: 0.2in;
-  --pagedjs-margin-left: 0.2in;
-}
-
-/* Customize some of the sizing variables */
-:root {
-  --sidebar-width: 12rem; /* Shrink sidebar width  */
-  --sidebar-background-color: #f7fbff; /* Make sidebar blue */
-  --sidebar-horizontal-padding: 0.01in; /* Reduce sidebar padding */
-  --decorator-outer-dim: 10px; /* Make position deliniating circles larger */
-  --decorator-border: 2px solid #bdd7e7; /* Make timeline a blue as well*/
-}
-
 .details .place {
   margin-top: 0.25rem;
 }
 
 .main-block:not(.concise) .details div {
   padding-top: 0.005rem;
+}
+
+.formerly {
+  font-size: 10px;
+  color: var(--main-color-timeline-headers);
+  margin-top: -5px;
+}
+
+/* Change color of icons */
+.fa-map-marker-alt {
+  color: var(--main-color-headers);
 }
 
 /* Laptop icon isn't centered by default which is lame */
@@ -70,6 +107,11 @@ sup {
   padding-left: 1rem;
 }
 
+/* reduce distnce between sections in side pane */
+.aside .level2 {
+  margin-top: 0.3in;
+}
+
 .aside li::before {
   position: relative;
   margin-left: -4.25pt;
@@ -79,13 +121,17 @@ sup {
 /* Make sure elements in asside are centered and have a nice small text */
 .aside {
   width: calc(var(--sidebar-width) + 9px);
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
   line-height: 1.2;
   font-size: 0.75rem;
+  margin-top: -0.1in;
 }
 
 /* Make little circle outline be a light blue */
 .decorator::after {
-  background-color: #08306b;
+  background-color: var(--main-color-headers);
 }
 
 /* Remove the fake bullets from lists */
@@ -116,9 +162,21 @@ sup {
 
 /* Add styles for little cards  */
 .info-card{
-  width: 220px;    
-  float: left;    
+  width: 220px;
+  float: left;
   padding: 0.5rem;
   margin: 0.5rem;
   box-shadow: 1px 1px 4px black;
+}
+
+/* Style for skill table*/
+.skill_table {
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+.skill_table tr td {
+  border-right: 2px solid var(--main-color-skillbar-background);
+}
+.skill_table tr td:last-child {
+  border: none;
 }

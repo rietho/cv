@@ -5,3 +5,4 @@ resume_files/
 .DS_Store
 README.html
 *_cache/
+*.RDS
