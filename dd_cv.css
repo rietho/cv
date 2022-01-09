@@ -2,15 +2,17 @@
 
 * {
   /* Override default margins for sidebar*/
-  --pagedjs-margin-right: 0.2in;
+  --pagedjs-margin-right: 0.25in;
   --pagedjs-margin-left: 0.3in;
-  --pagedjs-margin-top: 0.4in;
-  --pagedjs-margin-bottom: 0.5in;
+  --pagedjs-margin-top: 0.3in;
+  --pagedjs-margin-bottom: 0.3in;
 }
 
 /* Customize some of the sizing variables */
 :root {
   --page-width: 210mm;
+  --margin-left: 0.25in;
+  --margin-right: 0.25in;
 
   --sidebar-width: 12rem; /* Shrink sidebar width  */
   --sidebar-background-color: #f2f2f1; /* Make sidebar grey */
@@ -45,7 +47,7 @@ h3 {
 
 /* reduce padding of main section*/
 [data-id="main"] {
-  padding: 0 0.4in 0 0;
+  padding: 0 0.35in 0 0;
 }
 /* header in main section to color grey */
 [data-id="main"] h2 {
