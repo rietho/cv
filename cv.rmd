@@ -91,9 +91,9 @@ if (FALSE) {
 
 ```{r}
 if(params$pdf_mode){
-  cat("[View an online version of my CV](https://htmlpreview.github.io/?https://github.com/rietho/cv/blob/main/cv.html)")
+  cat('[View an online version of my CV](https://htmlpreview.github.io/?https://github.com/rietho/cv/blob/main/cv.html){target="_blank"}')
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rietho/cv/raw/main/cv.pdf)")
+  cat(r"{[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rietho/cv/raw/main/cv.pdf){target="_blank"}}")
 }
 ```
 
@@ -148,8 +148,8 @@ CV %>% print_skills_table()
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [pagedown](https://github.com/rstudio/pagedown).<br>
-Source code available on [github](https://github.com/rietho/cv).<br>
+Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.<br>
+Source code available on [github](https://github.com/rietho/cv){target="_blank"}.<br>
 Last updated on `r Sys.Date()`.
 
 

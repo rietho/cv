@@ -40,17 +40,17 @@ Aside
 [![logo](frame.svg){width=75%}](https://www.linkedin.com/in/thomas-lieb-158576a0/)
 </center>
 
-[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rietho/cv/raw/main/cv.pdf)
+[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rietho/cv/raw/main/cv.pdf){target="_blank"}
 
 Contact {#contact}
 --------------------------------------------------------------------------------
 
 <p style="line-height:1.6;margin-top:5px"><i class='fa fa-envelope'></i> *email not publicly available*<br>
 <i class='fa fa-phone'></i> *phone not publicly available*<br>
-<i class='fa fa-github'></i> [github.com/rietho](http://github.com/rietho)<br>
-<i class='fa fa-link'></i> [gapthemind.info](https://gapthemind.info)<br>
-<i class='fa fa-linkedin'></i> [thomas-lieb-158576a0](http://linkedin.com/in/thomas-lieb-158576a0/)<br>
-<i class='fa fa-map-marker'></i> [Dublin, Ireland](https://www.google.at/maps/search/dublin%2Cireland)<br></p>
+<i class='fa fa-github'></i> <a href="http://github.com/rietho" target="_blank">github.com/rietho</a><br>
+<i class='fa fa-link'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a><br>
+<i class='fa fa-linkedin'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-lieb-158576a0</a><br>
+<i class='fa fa-map-marker'></i> <a href="https://www.google.at/maps/search/dublin%2Cireland" target="_blank">Dublin, Ireland</a><br></p>
 
 Advanced Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
@@ -130,8 +130,8 @@ Languages {#languages}
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [pagedown](https://github.com/rstudio/pagedown).<br>
-Source code available on [github](https://github.com/rietho/cv).<br>
+Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.<br>
+Source code available on [github](https://github.com/rietho/cv){target="_blank"}.<br>
 Last updated on 2023-03-19.
 
 
@@ -165,7 +165,7 @@ About industry experience
 
 ### Manager Business Intelligence
 
-[Indeed.com](https://ie.indeed.com/about), Multinational & world's largest job site
+[Indeed.com](https://ie.indeed.com/about){target="_blank"}, Multinational & world's largest job site
 
 Dublin, IE
 
@@ -181,21 +181,21 @@ Current - 2020
 
 ### Senior Business Intelligence Analyst
 
-[Indeed.com](https://ie.indeed.com/about), Multinational & world's largest job site
+[Indeed.com](https://ie.indeed.com/about){target="_blank"}, Multinational & world's largest job site
 
 Dublin, IE
 
 2020 - 2018
 
 - Solving business problems in experimental design and analysis of large scale marketing campaigns using Python and R
-- Working with large volumes of data across various platforms like postgreSQL, Presto, Hive, Snowflake
+- Working with large volumes of data across various platforms like postgreSQL, Presto, Hive, Snowflake including data warehousing & Cloud applications
 - End-to-end business intelligence management including stakeholder management, project management, documentation and package development
 
 
 
 ### Data Scientist in Applied Statistics
 
-[JOANNEUM RESEARCH](https://www.joanneum.at/en), Innovation & Science Company
+[JOANNEUM RESEARCH](https://www.joanneum.at/en){target="_blank"}, Innovation & Science Company
 
 Graz, AT
 
@@ -208,7 +208,7 @@ Graz, AT
 
 ### Global R&D Trainee
 
-[Siemens AG](https://www.siemens-energy.com/global/en/offerings/power-transmission/portfolio/transformers.html), Multinational
+[Siemens AG](https://www.siemens-energy.com/global/en/offerings/power-transmission/portfolio/transformers.html){target="_blank"}, Multinational
 
 Weiz, AT
 
@@ -228,7 +228,7 @@ Aside text for education
 
 ### Master's Degree in Negotiation, Mediation and Communications
 
-[University of Graz](https://www.uni-graz.at/en/)
+[University of Graz](https://www.uni-graz.at/en/){target="_blank"}
 
 Graz, AT
 
@@ -244,7 +244,7 @@ Graz, AT
 
 ### Master's and Bachelor's Degree of Science, Technical Mathematics: Operations Research and Statistics
 
-[Graz University of Technology](https://www.tugraz.at/en/home/)
+[Graz University of Technology](https://www.tugraz.at/en/home/){target="_blank"}
 
 Graz, AT
 
