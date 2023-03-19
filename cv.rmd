@@ -38,7 +38,7 @@ here::i_am("cv.rmd")
 source(here::here("cv_printing_functions.r"))
 
 # Read in all data and initialize a CV printer object
-offline <- T
+offline <- F
 if (!offline) {
   CV <- create_CV_object(
   data_location = "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460",  
