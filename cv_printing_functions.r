@@ -276,11 +276,17 @@ print_skills_table <- function(cv, glue_template = "default", category_filter = 
 }
 
 #' @description Construct a text of skills
-print_skills_text <- function(cv, glue_template = "default", category_filter = "other_tech"){
+print_skills_text <- function(
+    cv, glue_template = "default", category_filter = "other_tech",
+    collapse = ", "){
 
-  if(glue_template == "default"){
+  if (glue_template == "default") {
     glue_template_pre <- "<p style='margin-top: 5px;'>"
     glue_template <- "{skill}"
+    glue_template_post <- "</p>"
+  } else if (glue_template == "list") {
+    glue_template_pre <- "<p style='margin-top: 5px;'>"
+    glue_template <- "- {skill}"
     glue_template_post <- "</p>"
   } else {
     glue_template_pre <- glue_template_post <- ""
@@ -289,7 +295,7 @@ print_skills_text <- function(cv, glue_template = "default", category_filter = "
     dplyr::filter(category == category_filter) %>%
     dplyr::arrange(order) %>%
     glue::glue_data(glue_template) %>%
-    glue::glue_collapse(", ")
+    glue::glue_collapse(collapse)
   print(glue::glue(glue_template_pre, table_txt, glue_template_post))
 
   invisible(cv)

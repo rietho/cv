@@ -384,7 +384,7 @@ h1, h2{
   position: absolute;
   bottom: 0;
   right: var(--sidebar-horizontal-padding);
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-style: italic;
   line-height: 1.1;
   text-align: right;

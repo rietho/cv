@@ -7,8 +7,10 @@ params:
     value: false
 output:
   pagedown::html_resume:
-    css: ['dd_cv.css', 'resume']
+    # note: order here matters, the latter overrides the former
+    css: ['resume.css', 'dd_cv.css']
     self_contained: true
+    keep_md: yes
 ---
 
 ```{=html}
@@ -102,7 +104,7 @@ Contact {#contact}
 CV %>% print_contact_info()
 ```
 
-Main Tech Skills {#main_tech_skills}
+Advanced Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -115,16 +117,24 @@ Other Tech Skills {#other_tech_skills}
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %>% print_skills_text(category_filter = "other_tech")
+#CV %>% print_skills_text(category_filter = "other_tech", collapse = " - ")
+CV %>% print_skills_text(category_filter = "other_tech", glue_template = "list", collapse = "\n")
 ```
 
+Management Skills {#management_skills}
+--------------------------------------------------------------------------------
+```{r}
+CV %>% print_skills_text(category_filter = "management", glue_template = "list", collapse = "\n")
+```
 
+<!--
 Attributes {#attributes}
 --------------------------------------------------------------------------------
 
 ```{r}
 CV %>% print_skills_text(category_filter = "attributes")
 ```
+-->
 
 
 Languages {#languages}
@@ -138,16 +148,14 @@ CV %>% print_skills_table()
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
-
-Source code available on [github](https://github.com/rietho/cv).
-
+Made with the R package [pagedown](https://github.com/rstudio/pagedown).<br>
+Source code available on [github](https://github.com/rietho/cv).<br>
 Last updated on `r Sys.Date()`.
 
 
 # Main
 
-## Thomas Lieb {#title}
+## Thomas Lieb, MSc, MA, BSc {#title}
 
 <p class="formerly">
 formerly: Thomas Riebenbauer
@@ -163,7 +171,7 @@ CV %<>% print_subtitle()
 CV %<>% print_text_block("intro") 
 ```
 
-## Industry Experience (Highlights) {data-icon="suitcase"}
+## Work Experience {data-icon="suitcase"}
 
 ```{=html}
 <!--!
@@ -179,7 +187,7 @@ CV %<>% print_text_block('industy_experience_aside')
 CV %<>% print_section('industry_positions')
 ```
 
-## Education (Highlights) {data-icon="graduation-cap" data-concise="true"}
+## Education {data-icon="graduation-cap" data-concise="true"}
 
 ```{=html}
 <!--!
