@@ -28,7 +28,7 @@ This CV was created based on the [`datadrivencv`](http://nickstrayer.me/datadriv
 
 # Motivation 
 
-I wanted to update my CV, but editing a document/slide is quite a bit of manual work. That is especially as this can easily lead to re-formatting the whole file. I remembered that some people were doing CVs using Rmarkdown. On researching, I came across the `datadrivencv`](http://nickstrayer.me/datadrivencv/) package. That seemed like a great approach as it allows me to:
+I wanted to update my CV, but editing a document/slide is quite a bit of manual work. That is especially as this can easily lead to re-formatting the whole file. I remembered that some people were doing CVs using Rmarkdown. On researching, I came across the [`datadrivencv`](http://nickstrayer.me/datadrivencv/) package. That seemed like a great approach as it allows me to:
 
 * Store the content in a file making it easy to edit.
 * Change the style using CSS.

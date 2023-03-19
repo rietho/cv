@@ -25,15 +25,15 @@ I wanted to update my CV, but editing a document/slide is quite a bit of
 manual work. That is especially as this can easily lead to re-formatting
 the whole file. I remembered that some people were doing CVs using
 Rmarkdown. On researching, I came across the
-`datadrivencv`\](<http://nickstrayer.me/datadrivencv/>) package. That
+[`datadrivencv`](http://nickstrayer.me/datadrivencv/) package. That
 seemed like a great approach as it allows me to:
 
--   Store the content in a file making it easy to edit.
--   Change the style using CSS.
--   Easily create HTML and PDF versions.
--   The `datadrivencv` package creates the needed files based on
-    templates. After that my CV does not depend on the package.
--   Use R (I like using R).
+- Store the content in a file making it easy to edit.
+- Change the style using CSS.
+- Easily create HTML and PDF versions.
+- The `datadrivencv` package creates the needed files based on
+  templates. After that my CV does not depend on the package.
+- Use R (I like using R).
 
 # Using it
 
@@ -68,14 +68,14 @@ are needed and their columns are:
 
 ### `skills`
 
-| Column      | Description                                                                         |
-|-------------|-------------------------------------------------------------------------------------|
-| `order`     | Order                                                                               |
-| `category`  | Category of skill. Currently one of: technical, language, other\_tech or attributes |
-| `skill`     | Name of skill                                                                       |
-| `level_num` | Relative numeric level of skill. Applies only to category “technical”               |
-| `level_cat` | Categorical level of skill. Applies only to categoriy “language”                    |
-| `in_resume` | A filter variable that is used to decide if entry is in the resume.                 |
+| Column      | Description                                                                        |
+|-------------|------------------------------------------------------------------------------------|
+| `order`     | Order                                                                              |
+| `category`  | Category of skill. Currently one of: technical, language, other_tech or attributes |
+| `skill`     | Name of skill                                                                      |
+| `level_num` | Relative numeric level of skill. Applies only to category “technical”              |
+| `level_cat` | Categorical level of skill. Applies only to categoriy “language”                   |
+| `in_resume` | A filter variable that is used to decide if entry is in the resume.                |
 
 ### `text_blocks`
 
