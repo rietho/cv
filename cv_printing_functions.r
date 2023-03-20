@@ -13,6 +13,9 @@ txt_aside_margin_top <- "-5px"
 #'   either a URL to a google sheet with multiple sheets containing the four
 #'   data types or a path to a folder containing four `.csv`s with the neccesary
 #'   data.
+#' @param data_location_override Currently not in use. Could be used iun the
+#'   future to read a second set of data that overrides the first set in places
+#'   where they overlap
 #' @param source_location Where is the code to build your CV hosted?
 #' @param pdf_mode Is the output being rendered into a pdf? Aka do links need
 #'   to be stripped?
@@ -20,6 +23,7 @@ txt_aside_margin_top <- "-5px"
 #'   is the sheet publicly available? (Makes authorization easier.)
 #' @return A new `CV_Printer` object.
 create_CV_object <-  function(data_location,
+                              data_location_override = NULL,
                               pdf_mode = FALSE,
                               sheet_is_publicly_readable = TRUE) {
 
@@ -28,43 +32,47 @@ create_CV_object <-  function(data_location,
     links = c()
   )
 
-  is_google_sheets_location <- stringr::str_detect(data_location, "docs\\.google\\.com")
+  read_data <- function(data_location) {
+    is_google_sheets_location <- stringr::str_detect(data_location, "docs\\.google\\.com")
 
-  if(is_google_sheets_location){
-    if(sheet_is_publicly_readable){
-      # This tells google sheets to not try and authenticate. Note that this will only
-      # work if your sheet has sharing set to "anyone with link can view"
-      googlesheets4::gs4_deauth()
+    if(is_google_sheets_location){
+      if(sheet_is_publicly_readable){
+        # This tells google sheets to not try and authenticate. Note that this will only
+        # work if your sheet has sharing set to "anyone with link can view"
+        googlesheets4::gs4_deauth()
+      } else {
+        # if you want to use a private sheet, then this is the way you need to do it.
+        # designate project-specific cache so we can render Rmd without problems
+        # code to generate .secrets:
+        # # designate project-specific cache
+        # options(gargle_oauth_cache = “.secrets”)
+        # # check the value of the option, if you like
+        # gargle::gargle_oauth_cache()
+        # # trigger auth on purpose to store a token in the specified cache a
+        # # browser will be opened
+        # googlesheets4::sheets_auth()
+        options(gargle_oauth_cache = ".secrets")
+      }
+
+      read_gsheet <- function(data_location, sheet_id){
+        googlesheets4::read_sheet(ss = data_location, sheet = sheet_id, skip = 1, col_types = "c")
+      }
+      cv$entries_data  <- read_gsheet(data_location, sheet_id = "entries")
+      cv$skills        <- read_gsheet(data_location, sheet_id = "skills")
+      cv$text_blocks   <- read_gsheet(data_location, sheet_id = "text_blocks")
+      cv$contact_info  <- read_gsheet(data_location, sheet_id = "contact_info")
+      cv$settings      <- read_gsheet(data_location, sheet_id = "settings")
     } else {
-      # if you want to use a private sheet, then this is the way you need to do it.
-      # designate project-specific cache so we can render Rmd without problems
-      # code to generate .secrets:
-      # # designate project-specific cache
-      # options(gargle_oauth_cache = “.secrets”)
-      # # check the value of the option, if you like
-      # gargle::gargle_oauth_cache()
-      # # trigger auth on purpose to store a token in the specified cache a
-      # # browser will be opened
-      # googlesheets4::sheets_auth()
-      options(gargle_oauth_cache = ".secrets")
+      # Want to go old-school with csvs?
+      cv$entries_data <- readr::read_csv(paste0(data_location, "entries.csv"), skip = 1)
+      cv$skills       <- readr::read_csv(paste0(data_location, "skills.csv"), skip = 1)
+      cv$text_blocks  <- readr::read_csv(paste0(data_location, "text_blocks.csv"), skip = 1)
+      cv$contact_info <- readr::read_csv(paste0(data_location, "contact_info.csv"), skip = 1)
+      cv$settings <- readr::read_csv(paste0(data_location, "settings.csv"), skip = 1)
     }
-
-    read_gsheet <- function(sheet_id){
-      googlesheets4::read_sheet(data_location, sheet = sheet_id, skip = 1, col_types = "c")
-    }
-    cv$entries_data  <- read_gsheet(sheet_id = "entries")
-    cv$skills        <- read_gsheet(sheet_id = "skills")
-    cv$text_blocks   <- read_gsheet(sheet_id = "text_blocks")
-    cv$contact_info  <- read_gsheet(sheet_id = "contact_info")
-    cv$settings  <- read_gsheet(sheet_id = "settings")
-  } else {
-    # Want to go old-school with csvs?
-    cv$entries_data <- readr::read_csv(paste0(data_location, "entries.csv"), skip = 1)
-    cv$skills       <- readr::read_csv(paste0(data_location, "skills.csv"), skip = 1)
-    cv$text_blocks  <- readr::read_csv(paste0(data_location, "text_blocks.csv"), skip = 1)
-    cv$contact_info <- readr::read_csv(paste0(data_location, "contact_info.csv"), skip = 1)
-    cv$settings <- readr::read_csv(paste0(data_location, "settings.csv"), skip = 1)
+    return(cv)
   }
+  cv <- read_data(data_location)
 
   extract_year <- function(dates){
     date_year <- stringr::str_extract(dates, "(20|19)[0-9]{2}")

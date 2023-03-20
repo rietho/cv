@@ -22,7 +22,7 @@ Tailoring CV for specific applications
 -->
 ```
 
-```{r}
+```{r cv_data_url, include = FALSE}
 cv_data_url <- "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460"
 ```
 
@@ -45,9 +45,9 @@ source(here::here("cv_printing_functions.r"))
 offline <- F
 if (!offline) {
   CV <- create_CV_object(
-  data_location = cv_data_url,  
-  pdf_mode = params$pdf_mode,
-  sheet_is_publicly_readable = FALSE
+    data_location = cv_data_url,  
+    pdf_mode = params$pdf_mode,
+    sheet_is_publicly_readable = FALSE
   )
   saveRDS(CV, "CV.RDS")
 } else {
