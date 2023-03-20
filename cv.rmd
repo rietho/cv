@@ -84,10 +84,10 @@ if (FALSE) {
 ```
 
 
-<!-- Swap image with your preferred logo -->
-<center>
-[![logo](frame.svg){width=75%}](https://www.linkedin.com/in/thomas-lieb-158576a0/)
-</center>
+<!-- image at the top of aside -->
+```{r insert_image}
+CV %>% print_image_html()
+```
 
 ```{r}
 if(params$pdf_mode){
