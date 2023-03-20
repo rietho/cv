@@ -49,7 +49,7 @@ Contact {#contact}
 <p style="line-height:1.6;margin-top: 5px"><i class='fa fa-envelope fa-fw'></i> *email not publicly available*<br>
 <i class='fa fa-phone fa-fw'></i> *phone not publicly available*<br>
 <i class='fa fa-github fa-fw'></i> <a href="http://github.com/rietho" target="_blank">github.com/rietho</a><br>
-<i class='fa fa-link fa-fw'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a><br>
+<i class='fa fa-link fa-fw'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a> (personal blog)<br>
 <i class='fa fa-linkedin fa-fw'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-lieb-158576a0</a><br>
 <i class='fa fa-map-marker fa-fw'></i> <a href="https://www.google.at/maps/search/dublin%2Cireland" target="_blank">Dublin, Ireland</a><br></p>
 

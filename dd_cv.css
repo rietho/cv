@@ -43,10 +43,6 @@ body {
   color: #444;
 }
 
-@page {
-  size: a4 portrait;
-}
-
 /* Give headers playfair font */
 h1,
 h2 {
@@ -57,6 +53,11 @@ h3 {
   font-family: "Roboto", sans-serif; /*"Playfair Display", serif;*/
   font-weight: 900;
   color: black;
+}
+
+/* change color of links */
+a{
+  color: var(--main-color-headers);
 }
 
 /* reduce padding of main section*/

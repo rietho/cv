@@ -22,6 +22,10 @@ Tailoring CV for specific applications
 -->
 ```
 
+```{r}
+cv_data_url <- "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460"
+```
+
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
@@ -41,7 +45,7 @@ source(here::here("cv_printing_functions.r"))
 offline <- F
 if (!offline) {
   CV <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460",  
+  data_location = cv_data_url,  
   pdf_mode = params$pdf_mode,
   sheet_is_publicly_readable = FALSE
   )

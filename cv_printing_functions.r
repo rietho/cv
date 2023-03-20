@@ -363,11 +363,14 @@ Links {data-icon=link}
 print_contact_info <- function(cv){
   txt <- glue::glue_data(
     cv$contact_info,
-    r"[<i class='fa fa-{icon} fa-fw'></i> <a href="{link}" target="_blank">{contact}</a><br>]"
+    r"[<i class='fa fa-{icon} fa-fw'></i> <a href="{link}" target="_blank">{contact}</a> {text_add}<br>]"
   ) %>%
-    # remove empty links
+    # remove empty links (md version)
     stringr::str_replace("\\[(.*)\\]\\(NA\\)", "\\1") %>%
+    # remove empty links (html version)
     stringr::str_replace('<a href="NA" target="_blank">(.*)</a>', "\\1") %>%
+    # remove empty additional text
+    stringr::str_replace('(.*) NA', "\\1") %>%
     glue::as_glue()
   print(glue::glue(
     '<p style="line-height:1.6;margin-top: 5px">',
