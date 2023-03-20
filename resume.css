@@ -1,7 +1,7 @@
 /*source: https://github.com/rstudio/pagedown/blob/6f27778df1acf592206a5a06d01ced04b2d2e0d1/inst/resources/css/resume.css*/
 
 @page{
-  size: letter portrait;
+  size: A4 portrait;
   margin: 1in 0.5in 1in 0.25in;
 }
 
@@ -19,6 +19,7 @@
   --sidebar-background-color: #f2f2f2;
   --main-width: calc(var(--content-width) - var(--sidebar-width));
   --decorator-horizontal-margin: 0.2in;
+  --decorator-horizontal-margin-date: 0.1in;
 
   --sidebar-horizontal-padding: 0.2in;
 
@@ -155,7 +156,7 @@ h1, h2{
 }
 
 #main h2::after{ /* extends the decorator line */
-  height: calc(var(--row-blocks-padding-top) * 2);
+  height: calc(var(--row-blocks-padding-top) * 3);
   position: relative;
   top: calc(-1 * var(--row-blocks-padding-top));
   /* XXX: 0.5px for aligning fx printing */
@@ -196,7 +197,7 @@ h1, h2{
 .date{
   flex: 0 0 var(--date-block-width);
   padding-top: calc(var(--row-blocks-padding-top) + 0.25rem) !important;
-  padding-right: var(--decorator-horizontal-margin);
+  padding-right: var(--decorator-horizontal-margin-date);
   font-size: 0.7rem;
   text-align: right;
   line-height: 1;
@@ -266,7 +267,7 @@ h1, h2{
 
 .details{
   flex: 1 0 0;
-  padding-left: var(--decorator-horizontal-margin);
+  padding-left: calc(var(--decorator-horizontal-margin) - 0.05in);
   padding-top: calc(var(--row-blocks-padding-top) - 0.05rem) !important; /* not sure why but this is needed for better alignment */
 }
 
