@@ -1,7 +1,7 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2023-03-19"
+date: "2023-03-20"
 params:
   pdf_mode:
     value: false
@@ -35,9 +35,10 @@ Aside
 
 
 
-<!-- Swap image with your preferred logo -->
+<!-- image at the top of aside -->
 <center>
-[![logo](frame.svg){width=75%}](https://www.linkedin.com/in/thomas-lieb-158576a0/)
+<!--[![logo](frame.svg){width=75%, target="_blank"}](https://www.linkedin.com/in/thomas-lieb-158576a0/)-->
+[![logo](frame.svg){width=75%}](https://www.linkedin.com/in/thomas-r-lieb/){target="_blank"}
 </center>
 
 [<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rietho/cv/raw/main/cv.pdf){target="_blank"}
@@ -45,12 +46,12 @@ Aside
 Contact {#contact}
 --------------------------------------------------------------------------------
 
-<p style="line-height:1.6;margin-top:5px"><i class='fa fa-envelope'></i> *email not publicly available*<br>
-<i class='fa fa-phone'></i> *phone not publicly available*<br>
-<i class='fa fa-github'></i> <a href="http://github.com/rietho" target="_blank">github.com/rietho</a><br>
-<i class='fa fa-link'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a><br>
-<i class='fa fa-linkedin'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-lieb-158576a0</a><br>
-<i class='fa fa-map-marker'></i> <a href="https://www.google.at/maps/search/dublin%2Cireland" target="_blank">Dublin, Ireland</a><br></p>
+<p style="line-height:1.6;margin-top: 5px"><i class='fa fa-envelope fa-fw'></i> *email not publicly available*<br>
+<i class='fa fa-phone fa-fw'></i> *phone not publicly available*<br>
+<i class='fa fa-github fa-fw'></i> <a href="http://github.com/rietho" target="_blank">github.com/rietho</a><br>
+<i class='fa fa-link fa-fw'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a><br>
+<i class='fa fa-linkedin fa-fw'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-lieb-158576a0</a><br>
+<i class='fa fa-map-marker fa-fw'></i> <a href="https://www.google.at/maps/search/dublin%2Cireland" target="_blank">Dublin, Ireland</a><br></p>
 
 Advanced Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
@@ -64,26 +65,26 @@ Advanced Tech Skills {#main_tech_skills}
 <div
   class = 'skill-bar'
   style = "background:linear-gradient(to right,
-                                      #274b9f 80%,
-                                      #d9d9d9 80% 100%)"
+                                      #274b9f 90%,
+                                      #d9d9d9 90% 100%)"
 >Python, Jupiter</div>
 <div
   class = 'skill-bar'
   style = "background:linear-gradient(to right,
-                                      #274b9f 80%,
-                                      #d9d9d9 80% 100%)"
+                                      #274b9f 90%,
+                                      #d9d9d9 90% 100%)"
 >Git, GitLab</div>
 <div
   class = 'skill-bar'
   style = "background:linear-gradient(to right,
-                                      #274b9f 70%,
-                                      #d9d9d9 70% 100%)"
+                                      #274b9f 90%,
+                                      #d9d9d9 90% 100%)"
 >SQL</div>
 
 Other Tech Skills {#other_tech_skills}
 --------------------------------------------------------------------------------
 
-<p style='margin-top: 5px;'>- Tableau
+<p style='margin-top: -5px;'>- Tableau
 - Snowflake
 - HTML/CSS
 - Javascript
@@ -96,7 +97,7 @@ Other Tech Skills {#other_tech_skills}
 
 Management Skills {#management_skills}
 --------------------------------------------------------------------------------
-<p style='margin-top: 5px;'>- People Management & Coaching
+<p style='margin-top: -5px;'>- People Management & Coaching
 - Performance Management
 - Project Management
 - Quarterly / Annual planning
@@ -132,7 +133,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.<br>
 Source code available on [github](https://github.com/rietho/cv){target="_blank"}.<br>
-Last updated on 2023-03-19.
+Last updated on 2023-03-20.
 
 
 # Main
@@ -144,7 +145,7 @@ formerly: Thomas Riebenbauer
 </p>
 
 
-### Impact-driven Data Analytics Professional
+### Experienced and Impact-driven Data Analytics Team Lead
 
 - Data and impact-driven, proactive, hyghly motivated, collaborative, resourceful, can-do attitude
 - 10 years experience in data science, machine learning, team management and project management 
@@ -169,7 +170,7 @@ About industry experience
 
 Dublin, IE
 
-Current - 2020
+2020-11 - Current
 
 - Leading and coaching a global team of (Senior) Business Intelligence Analysts
 - Resource Management in complex environment to make data-driven decisions
@@ -185,7 +186,7 @@ Current - 2020
 
 Dublin, IE
 
-2020 - 2018
+2018-05 - 2020-11
 
 - Solving business problems in experimental design and analysis of large scale marketing campaigns using Python and R
 - Working with large volumes of data across various platforms like postgreSQL, Presto, Hive, Snowflake including data warehousing & Cloud applications
@@ -199,7 +200,7 @@ Dublin, IE
 
 Graz, AT
 
-2018 - 2014
+2014-03 - 2018-03
 
 - Project ownership & management across various domains in research projects and in business collaboration
 - Statistical modeling & algorithm development (mainly R based), for instance, for large-scale, EU funded science projects
@@ -212,7 +213,7 @@ Graz, AT
 
 Weiz, AT
 
-2013 - 2012
+2012-08 - 2013-09
 
 - Data analysis and development of organisational algorithms for the Siemens Global Technology Center
 
@@ -232,7 +233,7 @@ Aside text for education
 
 Graz, AT
 
-2018 - 2016
+2016 - 2018
 
 :::concise
 - Master Thesis: Organisation and Team Development Concept for highly skilled expert teams
@@ -248,7 +249,7 @@ Graz, AT
 
 Graz, AT
 
-2014 - 2006
+2006 - 2014
 
 :::concise
 - Master Thesis: Statistical Trend Analysis for Development Projects for the sensor producer ams-OSRAM AG
