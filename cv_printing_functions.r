@@ -3,6 +3,10 @@
 
 here::i_am("cv_printing_functions.r")
 
+# text aside: margin-top (between text and header)
+# constant
+txt_aside_margin_top <- "-5px"
+
 #' Create a CV_Printer object.
 #'
 #' @param data_location Path of the spreadsheets holding all your data. This can be
@@ -52,12 +56,14 @@ create_CV_object <-  function(data_location,
     cv$skills        <- read_gsheet(sheet_id = "skills")
     cv$text_blocks   <- read_gsheet(sheet_id = "text_blocks")
     cv$contact_info  <- read_gsheet(sheet_id = "contact_info")
+    cv$settings  <- read_gsheet(sheet_id = "settings")
   } else {
     # Want to go old-school with csvs?
     cv$entries_data <- readr::read_csv(paste0(data_location, "entries.csv"), skip = 1)
     cv$skills       <- readr::read_csv(paste0(data_location, "skills.csv"), skip = 1)
     cv$text_blocks  <- readr::read_csv(paste0(data_location, "text_blocks.csv"), skip = 1)
     cv$contact_info <- readr::read_csv(paste0(data_location, "contact_info.csv"), skip = 1)
+    cv$settings <- readr::read_csv(paste0(data_location, "settings.csv"), skip = 1)
   }
 
   extract_year <- function(dates){
@@ -69,7 +75,12 @@ create_CV_object <-  function(data_location,
 
   parse_dates <- function(dates){
 
-    date_month <- stringr::str_extract(dates, "(\\w+|\\d+)(?=(\\s|\\/|-)(20|19)[0-9]{2})")
+    # expecting mm-yyyy format ("-" could also be " " or "/)
+    date_month <- stringr::str_extract(dates, r"{(\w+|\d+)(?=(\s|\/|-)(20|19)[0-9]{2})}")
+    # where no month found:
+    # expecting yyyy-mm format ("-" could also be " " or "/)
+    date_month[is.na(date_month)] <-
+      stringr::str_extract(date_month[is.na(date_month)], r"{(?<=(20|19)[0-9]{2}(\s|\/|-))(\w+|\d+)}")
     date_month[is.na(date_month)] <- "1"
 
     paste("1", date_month, extract_year(dates), sep = "-") %>%
@@ -100,8 +111,8 @@ create_CV_object <-  function(data_location,
       timeline = dplyr::case_when(
         no_start  & no_end  ~ "N/A",
         no_start  & has_end ~ as.character(end),
-        has_start & no_end  ~ paste("Current", "-", start),
-        TRUE                ~ paste(end, "-", start)
+        has_start & no_end  ~ paste(start, "-", "Current"),
+        TRUE                ~ paste(start, "-", end)
       ),
       in_resume = dplyr::case_when(
         stringr::str_to_upper(in_resume) == "TRUE" ~ TRUE,
@@ -123,6 +134,12 @@ create_CV_object <-  function(data_location,
       )
     ) %>%
     dplyr::filter(in_resume)
+
+  #' @description get a settings list based on the CV object
+  get_settings_list <- function(cv) {
+    setNames(as.list(cv$settings$setting), cv$settings$loc)
+  }
+  cv$settings <- get_settings_list(cv)
 
   cv
 }
@@ -226,6 +243,23 @@ print_text_block <- function(cv, label){
 
 
 
+#' @description Prints out HTML to insert image
+print_image_html <- function(cv) {
+  settings <- cv$settings
+
+  image_html <- glue::glue(r"[<center>
+<!--[![logo](frame.svg){width=75%, target="_blank"}](https://www.linkedin.com/in/thomas-lieb-158576a0/)-->
+[![logo]({{settings$image_path}}){width=75%}]({{settings$image_url}}){target="_blank"}
+</center>]", .open = "{{", .close = "}}")
+
+  image_html <- image_html |>
+    stringr::str_replace(r"[\[(\!\[[^\]]*\].*)\]\(NA\)\{target=\"_blank\"\}]", "\\1")
+
+  print(glue::as_glue(image_html))
+  invisible(cv)
+}
+
+
 #' @description Construct a bar chart of skills
 #' @param out_of The relative maximum for skills. Used to set what a fully filled in skill bar is.
 print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_background = "#d9d9d9", glue_template = "default", category_filter = "technical"){
@@ -281,11 +315,11 @@ print_skills_text <- function(
     collapse = ", "){
 
   if (glue_template == "default") {
-    glue_template_pre <- "<p style='margin-top: 5px;'>"
+    glue_template_pre <- glue::glue("<p style='margin-top: {txt_aside_margin_top};'>")
     glue_template <- "{skill}"
     glue_template_post <- "</p>"
   } else if (glue_template == "list") {
-    glue_template_pre <- "<p style='margin-top: 5px;'>"
+    glue_template_pre <- glue::glue("<p style='margin-top: {txt_aside_margin_top};'>")
     glue_template <- "- {skill}"
     glue_template_post <- "</p>"
   } else {
@@ -329,14 +363,14 @@ Links {data-icon=link}
 print_contact_info <- function(cv){
   txt <- glue::glue_data(
     cv$contact_info,
-    r"[<i class='fa fa-{icon}'></i> <a href="{link}" target="_blank">{contact}</a><br>]"
+    r"[<i class='fa fa-{icon} fa-fw'></i> <a href="{link}" target="_blank">{contact}</a><br>]"
   ) %>%
     # remove empty links
     stringr::str_replace("\\[(.*)\\]\\(NA\\)", "\\1") %>%
     stringr::str_replace('<a href="NA" target="_blank">(.*)</a>', "\\1") %>%
     glue::as_glue()
   print(glue::glue(
-    '<p style="line-height:1.6;margin-top:5px">',
+    '<p style="line-height:1.6;margin-top: 5px">',
     paste0(txt, collapse = "\n"),
     '</p>'
     ))
