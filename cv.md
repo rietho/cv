@@ -29,6 +29,8 @@ Tailoring CV for specific applications
 
 
 
+
+
 Aside
 ================================================================================
 
@@ -50,8 +52,8 @@ Contact {#contact}
 <i class='fa fa-phone fa-fw'></i> *phone not publicly available*<br>
 <i class='fa fa-github fa-fw'></i> <a href="http://github.com/rietho" target="_blank">github.com/rietho</a><br>
 <i class='fa fa-link fa-fw'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a> (personal blog)<br>
-<i class='fa fa-linkedin fa-fw'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-lieb-158576a0</a><br>
-<i class='fa fa-map-marker fa-fw'></i> <a href="https://www.google.at/maps/search/dublin%2Cireland" target="_blank">Dublin, Ireland</a><br></p>
+<i class='fa fa-linkedin fa-fw'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-r-lieb</a><br>
+<i class='fa fa-map-marker fa-fw'></i> Dublin, Ireland<br></p>
 
 Advanced Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
@@ -84,26 +86,26 @@ Advanced Tech Skills {#main_tech_skills}
 Other Tech Skills {#other_tech_skills}
 --------------------------------------------------------------------------------
 
-<p style='margin-top: -5px;'>- Tableau
-- Snowflake
-- HTML/CSS
-- Javascript
-- JIRA
+<p style='margin-top: -5px;'>- JIRA, Confluence
 - Cloud Technology: AWS, BigQuery
+- Snowflake
 - ETL & Data Warehousing
-- APIs
+- API proficiency
 - CI/CD
-- MS Office / Google Suite with advanced Excel skills</p>
+- HTML/CSS, Javascript
+- Tableau
+- MS Office/Google Suite with advanced Excel/Sheets skills</p>
 
 Management Skills {#management_skills}
 --------------------------------------------------------------------------------
 <p style='margin-top: -5px;'>- People Management & Coaching
 - Performance Management
-- Project Management
+- Agile Project Management
 - Quarterly / Annual planning
 - Presentations & Communications
 - Certified Mediator
-- (Senior) Stakeholder Management</p>
+- (Senior) Stakeholder Management
+- Diversity, Inclusion & Belonging</p>
 
 <!--
 Attributes {#attributes}
@@ -145,14 +147,14 @@ formerly: Thomas Riebenbauer
 </p>
 
 
-### Experienced and Impact-driven Data Analytics Team Lead
+### Experienced and Impact-driven Data Science & Analytics Team Lead
 
-- Data and impact-driven, proactive, hyghly motivated, collaborative, resourceful, can-do attitude
-- 10 years experience in data science, machine learning, team management and project management 
-- 3 years experience in leading global data science teams with passion to help others grow
-- Advanced data science skills (R, Python, SQL, Git, AWS, Tableau, Snowflake, Advanced Excel)  
-- Extensive experience in navigating ambiguous, cross-functional and fast paced environments 
-- Strong data visualization, dashboarding, communications and problem solving skills
+- Data and impact-driven, proactive, highly motivated, collaborative, resourceful, can-do attitude
+- 10+ years experience in data science, analytics, collaboration with business and technical leaders, project management and team management in an international environment
+- 3 years experience in leading global data science teams with a passion to help others grow
+- Extensive experience in navigating ambiguous, cross-functional and fast-paced environments
+- Advanced data science skills (R, Python, SQL, git, AWS, Tableau, Snowflake, ETL, etc.)
+- Strong data visualization, dashboarding, communications and problem-solving skills
 
 ## Work Experience {data-icon="suitcase"}
 
@@ -166,31 +168,32 @@ About industry experience
 
 ### Manager Business Intelligence
 
-[Indeed.com](https://ie.indeed.com/about){target="_blank"}, Multinational & world's largest job site
+[Indeed.com](https://ie.indeed.com/about){target="_blank"}, Multinational, #1 job site in the world
 
 Dublin, IE
 
 2020-11 - Current
 
-- Leading and coaching a global team of (Senior) Business Intelligence Analysts
-- Resource Management in complex environment to make data-driven decisions
+- Leading and coaching of a global team of (Senior) Business Intelligence Analysts
+- Scaling and driving decision-making for the Marketing organisation through automation, data pipelines, data analysis, attribution methodology development & enhancement, machine learning, reporting, and dashboards
+- Agile Resource Management in a complex environment to make data-driven decisions
 - Quarterly / annual strategy and planning ownership
-- Close collaboration with other leaders to leverage new technologies & opportuniites
-- Indeed wide lead of the R Guild bringing enterprise solutions and best practices for R to the whole company
+- Close collaboration with other leaders to leverage new technologies & opportunities
+- Indeed wide lead of the R-[Guild](https://www.bloomberg.com/company/stories/how-guilds-promote-the-exchange-of-technical-ideas-best-practices-within-bloomberg-engineering/){target="_blank"} bringing enterprise solutions and best practices for R to the whole company
 
 
 
 ### Senior Business Intelligence Analyst
 
-[Indeed.com](https://ie.indeed.com/about){target="_blank"}, Multinational & world's largest job site
+[Indeed.com](https://ie.indeed.com/about){target="_blank"}, Multinational, #1 job site in the world
 
 Dublin, IE
 
 2018-05 - 2020-11
 
-- Solving business problems in experimental design and analysis of large scale marketing campaigns using Python and R
-- Working with large volumes of data across various platforms like postgreSQL, Presto, Hive, Snowflake including data warehousing & Cloud applications
-- End-to-end business intelligence management including stakeholder management, project management, documentation and package development
+- Solving business problems in experimental design and analysis of large-scale marketing campaigns using Python, SQL and R using a state-of-the-art and large-scale data tech stack
+- Working with large volumes of data across various platforms like PostgreSQL, Presto, Hive, and Snowflake, including data warehousing & Cloud applications
+- End-to-end business intelligence workflow management, including stakeholder management, project management, documentation and package development
 
 
 
@@ -236,7 +239,7 @@ Graz, AT
 2016 - 2018
 
 :::concise
-- Master Thesis: Organisation and Team Development Concept for highly skilled expert teams
+- Master thesis on organisational and team development concepts for expert organisations
 - Passed with distinction
 - Certified Mediator
 :::
@@ -252,7 +255,7 @@ Graz, AT
 2006 - 2014
 
 :::concise
-- Master Thesis: Statistical Trend Analysis for Development Projects for the sensor producer ams-OSRAM AG
+- Master thesis: Statistical Trend Analysis for Development Projects in Semiconductor Industry for the sensor producer ams-OSRAM AG
 - Passed with distinction
 - Semester abroad at San Diego State University, USA
 :::

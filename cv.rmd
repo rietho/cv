@@ -27,7 +27,7 @@ cv_data_url <- "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3
 ```
 
 
-```{r, include=FALSE}
+```{r read_data, include=FALSE}
 knitr::opts_chunk$set(
   results='asis', 
   echo = FALSE
