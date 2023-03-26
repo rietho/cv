@@ -53,6 +53,7 @@ if (!offline) {
 } else {
   CV <- readRDS("CV.RDS")
 }
+CV$pdf_mode <- params$pdf_mode
 
 # read in CSS file to extract colors from
 require(cssparser)
@@ -98,33 +99,47 @@ mode <- ifelse(params$pdf_mode, "pdf", "html")
 CV %>% print_online_version_text(mode)
 ```
 
+<!--
 Contact {#contact}
 --------------------------------------------------------------------------------
-
+-->
 ```{r}
+CV %<>% print_text("header_contact", "plain",'  {#contact}')
+cat("\n--------------------------------------------------------------------------------\n")
 CV %>% print_contact_info()
 ```
 
+<!--
 Advanced Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
-
-```{r}
+-->
+```{r advanced_tech_skills}
+CV %<>% print_text("header_adv_tech_skills", "plain",'  {#main_tech_skills}')
+cat("\n--------------------------------------------------------------------------------\n")
 CV %>% print_skill_bars(
   bar_color = css_root$`--main-color-headers`, 
   bar_background = css_root$`--main-color-skillbar-background`)
 ```
 
+
+<!--
 Other Tech Skills {#other_tech_skills}
 --------------------------------------------------------------------------------
-
-```{r}
-#CV %>% print_skills_text(category_filter = "other_tech", collapse = " - ")
+-->
+```{r other_tech_skills}
+CV %<>% print_text("header_other_tech_skills", "plain",'  {#other_tech_skills}')
+cat("\n--------------------------------------------------------------------------------\n")
 CV %>% print_skills_text(category_filter = "other_tech", glue_template = "list", collapse = "\n")
 ```
 
+<!--
 Management Skills {#management_skills}
 --------------------------------------------------------------------------------
-```{r}
+-->
+
+```{r mgmt_skills}
+CV %<>% print_text("header_mgmt_skills", "plain",'  {#management_skills}')
+cat("\n--------------------------------------------------------------------------------\n")
 CV %>% print_skills_text(category_filter = "management", glue_template = "list", collapse = "\n")
 ```
 
@@ -137,12 +152,14 @@ CV %>% print_skills_text(category_filter = "attributes")
 ```
 -->
 
-
+<!--
 Languages {#languages}
 --------------------------------------------------------------------------------
-
-```{r}
-CV %>% print_skills_table()
+-->
+```{r languages}
+CV %<>% print_text("header_languages", "plain",'  {#languages}')
+cat("\n--------------------------------------------------------------------------------\n")
+CV %>% print_languages_table()
 ```
 
 
@@ -156,49 +173,64 @@ Last updated on `r Sys.Date()`.
 
 # Main
 
-## Thomas Lieb, MSc, MA, BSc {#title}
+```{r header_name}
+CV %<>% print_text("header_name", "title", " {#title}")
+```
 
 ```{r sub_header}
-CV %<>% print_subheader()
+CV %<>% print_text("subheader", "plain")
 ```
 
 
-```{r}
-CV %<>% print_subtitle()
+```{r subtitle}
+CV %<>% print_text("subtitle", "subtitle")
 ```
 
-```{r}
+```{r intro}
 # Note the special double pipe so we modify the CV object in place
-CV %<>% print_text_block("intro") 
+CV %<>% print_text("intro", "plain") 
 ```
 
+<!--
 ## Work Experience {data-icon="suitcase"}
+-->
 
+```{r work_experience_header}
+CV %<>% print_text("header_work_experience", "title", ' {data-icon="suitcase"}')
+```
+
+
+<!--
 ```{=html}
-<!--!
 ::: aside
 ```{r}
-CV %<>% print_text_block('industy_experience_aside')
+CV %<>% print_text('industy_experience_aside', "plain")
 ```
 :::
--->
 ```
+-->
 
 ```{r}
 CV %<>% print_section('industry_positions')
 ```
 
+<!--
 ## Education {data-icon="graduation-cap" data-concise="true"}
+-->
 
+```{r education_header}
+CV %<>% print_text("header_education", "title", ' {data-icon="graduation-cap" data-concise="true"}')
+```
+
+<!--
 ```{=html}
-<!--!
 ::: aside
 ```{r}
-CV %<>% print_text_block('education_aside')
+CV %<>% print_text('education_aside', "plain")
 ```
 :::
--->
 ```
+-->
 
 ```{r}
 glue_template <- "

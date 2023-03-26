@@ -220,46 +220,34 @@ print_section <- function(cv, section_id, glue_template = "default"){
 
   print(glue::glue_data(section_data, glue_template))
 
-  invisible(strip_res$cv)
+  invisible(cv) #invisible(strip_res$cv)
 }
 
-#' @description Prints subheader (used for former last name)
-print_subheader <- function(cv){
-  text_subheader <- dplyr::filter(cv$text_blocks, loc == "subheader") %>%
+#' @description Prints text if certain type like headers
+#'
+#' @param cv CV object
+#' @param id string specifying the ID per the data entry (column `loc`)
+#' @param type string specyfing the type of text
+#' @param post_text some text that comes post the other text
+print_text <- function(cv, id, type = c("plain", "subtitle", "title"), post_text = "") {
+  type <- match.arg(type, c("subtitle", "title", "plain"))
+
+  pre_text <- switch(
+    type,
+    subtitle = "### ",
+    title = "## ",
+    plain = "")
+
+  text <- dplyr::filter(cv$text_blocks, loc == id) %>%
     dplyr::pull(text)
 
-  if (length(text_subheader) > 0) {
-    cat(text_subheader)
+  if (length(text) > 0) {
+    cat(paste0(pre_text, text, post_text))
   }
 
   invisible(cv)
 }
 
-#' @description Prints subtitle
-print_subtitle <- function(cv){
-  text_subtitle <- dplyr::filter(cv$text_blocks, loc == "subtitle") %>%
-    dplyr::pull(text)
-
-  if (length(text_subtitle) > 0) {
-    cat(paste0("### ", text_subtitle))
-  }
-
-  invisible(cv)
-}
-
-
-#' @description Prints out text block identified by a given label.
-#' @param label ID of the text block to print as encoded in `label` column of `text_blocks` table.
-print_text_block <- function(cv, label){
-  text_block <- dplyr::filter(cv$text_blocks, loc == label) %>%
-    dplyr::pull(text)
-
-  strip_res <- list(cv = cv, text = text_block) # sanitize_links(cv, text_block)
-
-  cat(strip_res$text)
-
-  invisible(strip_res$cv)
-}
 
 #' @description Prints out text html code for linking to pdf/html version of the CV
 #' @param mode mode of the CV, either html or pdf
@@ -329,7 +317,7 @@ print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_backgrou
 
 
 #' @description Construct table of language skills
-print_skills_table <- function(cv, glue_template = "default", category_filter = "language"){
+print_languages_table <- function(cv, glue_template = "default", category_filter = "language"){
 
   if(glue_template == "default"){
     glue_template_pre <- "<table class='skill_table'>
