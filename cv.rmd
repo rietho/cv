@@ -150,7 +150,7 @@ Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.<br>
-Source code available on [github](https://github.com/rietho/cv){target="_blank"}.<br>
+Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.<br>
 Last updated on `r Sys.Date()`.
 
 
@@ -158,9 +158,9 @@ Last updated on `r Sys.Date()`.
 
 ## Thomas Lieb, MSc, MA, BSc {#title}
 
-<p class="formerly">
-formerly: Thomas Riebenbauer
-</p>
+```{r sub_header}
+CV %<>% print_subheader()
+```
 
 
 ```{r}

@@ -223,6 +223,18 @@ print_section <- function(cv, section_id, glue_template = "default"){
   invisible(strip_res$cv)
 }
 
+#' @description Prints subheader (used for former last name)
+print_subheader <- function(cv){
+  text_subheader <- dplyr::filter(cv$text_blocks, loc == "subheader") %>%
+    dplyr::pull(text)
+
+  if (length(text_subheader) > 0) {
+    cat(text_subheader)
+  }
+
+  invisible(cv)
+}
+
 #' @description Prints subtitle
 print_subtitle <- function(cv){
   text_subtitle <- dplyr::filter(cv$text_blocks, loc == "subtitle") %>%
