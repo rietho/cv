@@ -156,8 +156,8 @@ create_CV_object <-  function(data_location,
 # Remove links from a text block and add to internal list
 sanitize_links <- function(cv, text){
   if(cv$pdf_mode){
-    link_titles <- stringr::str_extract_all(text, '(?<=\\[).+?(?=\\])')[[1]]
-    link_destinations <- stringr::str_extract_all(text, '(?<=\\().+?(?=\\))')[[1]]
+    link_titles <- stringr::str_extract_all(text, '(?<=\\[).+?(?=\\]\\()')[[1]]
+    link_destinations <- stringr::str_extract_all(text, '(?<=\\]\\().+?(?=\\))')[[1]]
 
     n_links <- length(cv$links)
     n_new_links <- length(link_titles)
@@ -249,6 +249,30 @@ print_text_block <- function(cv, label){
   invisible(strip_res$cv)
 }
 
+#' @description Prints out text html code for linking to pdf/html version of the CV
+#' @param mode mode of the CV, either html or pdf
+print_online_version_text <- function(cv, mode = c("html", "pdf")) {
+  mode <- match.arg(mode, c("html", "pdf"))
+
+  # get text blocks
+  link <- cv$text_block |>
+    dplyr::filter(loc == glue::glue("{mode}_link")) |>
+    dplyr::pull(text)
+  link_text <- cv$text_block |>
+    dplyr::filter(loc == glue::glue("{mode}_link_text")) |>
+    dplyr::pull(text)
+  text <- cv$text_block |> dplyr::filter(loc == "html_link") |> dplyr::pull(text)
+
+  online_version_text <- glue::glue(
+    r"[[{{link_text}}]({{link}}){target="_blank"}]",
+    .open = "{{",
+    .close = "}}",
+    )
+
+  print(online_version_text)
+
+  invisible(cv)
+}
 
 
 #' @description Prints out HTML to insert image
