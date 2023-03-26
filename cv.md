@@ -1,7 +1,7 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2023-03-20"
+date: "2023-03-26"
 params:
   pdf_mode:
     value: false
@@ -69,7 +69,7 @@ Advanced Tech Skills {#main_tech_skills}
   style = "background:linear-gradient(to right,
                                       #274b9f 90%,
                                       #d9d9d9 90% 100%)"
->Python, Jupiter</div>
+>Python, Jupyter</div>
 <div
   class = 'skill-bar'
   style = "background:linear-gradient(to right,
@@ -135,7 +135,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.<br>
 Source code available on [github](https://github.com/rietho/cv){target="_blank"}.<br>
-Last updated on 2023-03-20.
+Last updated on 2023-03-26.
 
 
 # Main
@@ -175,11 +175,12 @@ Dublin, IE
 2020-11 - Current
 
 - Leading and coaching of a global team of (Senior) Business Intelligence Analysts
-- Scaling and driving decision-making for the Marketing organisation through automation, data pipelines, data analysis, attribution methodology development & enhancement, machine learning, reporting, and dashboards
+- Scaling and driving decision-making for the Marketing Growth organisation through automation, data pipelines, data analysis, attribution methodology development & enhancement, machine learning, reporting, and dashboards
 - Agile Resource Management in a complex environment to make data-driven decisions
 - Quarterly / annual strategy and planning ownership
-- Close collaboration with other leaders to leverage new technologies & opportunities
-- Indeed wide lead of the R-[Guild](https://www.bloomberg.com/company/stories/how-guilds-promote-the-exchange-of-technical-ideas-best-practices-within-bloomberg-engineering/){target="_blank"} bringing enterprise solutions and best practices for R to the whole company
+- Formed close partnerships with business leaders in identifying, prioritising and solving business problems
+- Close collaboration with other technical leaders in leveraging technologies
+- Company-wide lead of the R-[Guild](https://www.bloomberg.com/company/stories/how-guilds-promote-the-exchange-of-technical-ideas-best-practices-within-bloomberg-engineering/){target="_blank"} providing enterprise solutions and best practices
 
 
 
@@ -191,7 +192,7 @@ Dublin, IE
 
 2018-05 - 2020-11
 
-- Solving business problems in experimental design and analysis of large-scale marketing campaigns using Python, SQL and R using a state-of-the-art and large-scale data tech stack
+- Solving business problems of marketing acquisition and large-scale marketing campaigns. Used a broad range of approaches like data analysis, automation, experimental design and data visualisation using Python, SQL and R and a state-of-the-art, large-scale data tech stack
 - Working with large volumes of data across various platforms like PostgreSQL, Presto, Hive, and Snowflake, including data warehousing & Cloud applications
 - End-to-end business intelligence workflow management, including stakeholder management, project management, documentation and package development
 
