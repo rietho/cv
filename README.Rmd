@@ -42,11 +42,13 @@ Feel free to re use what I created. I made a bunch of customisations compared to
 
 You might fork my repo, copy my spreadhseet, fill it with your own data and with that render your own CV.
 
+To help with reproducibility, this projects uses the R package `renv` to define the R packages and its versions. Use `renv::restore()` to restore the state of the project from `renv.lock`. See the [package documentation](https://rstudio.github.io/renv/articles/renv.html) for more details.
+
 ## Format of spreadsheets
 
 The data is stored in a [Google Sheet](https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460)
 
-There are four spreadsheets of "data" that are used. These take the form of separate sub-sheets within a google sheet. The four spreadsheets that are needed and their columns are:
+There are four spreadsheets of "data" that are used. These take the form of separate sub-sheets within a google sheet. The spreadsheets that are needed and their columns are (note: these are partly outdated, as I did some updates to move more deta from the R markdown file into the sheet):
 
 ### `entries`
 |   Column       | Description               |
