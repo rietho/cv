@@ -1,7 +1,7 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2023-03-26"
+date: "2023-05-10"
 params:
   pdf_mode:
     value: false
@@ -117,6 +117,7 @@ Management Skills  {#management_skills}
 - Performance Management
 - Agile & Waterfall Project Management
 - Quarterly / Annual Planning
+- Development and execution of team processes
 - Presentations & Communications
 - (Senior) Stakeholder Management
 - Diversity, Equity, Inclusion & Belonging (DEIB)
@@ -150,10 +151,9 @@ Languages  {#languages}
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.<br>
-Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.<br>
-Last updated on 2023-03-26.
-
+Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
+<br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
+<br>Last updated on 2023-05-10.
 
 # Main
 
