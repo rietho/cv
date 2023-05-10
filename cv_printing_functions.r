@@ -143,9 +143,23 @@ create_CV_object <-  function(data_location,
     ) %>%
     dplyr::filter(in_resume)
 
+  #' @description parse boolean text value (should be TRUE or FALSE)
+  parse_boolean_txt <- function(txt, default = FALSE) {
+    # empty value treated as FALSE
+    if (is.null(txt)) return(default)
+    if (is.na(txt)) return(default)
+    parsed <- as.logical(txt)
+    return(parsed)
+  }
+
   #' @description get a settings list based on the CV object
   get_settings_list <- function(cv) {
-    setNames(as.list(cv$settings$setting), cv$settings$loc)
+    settings <- setNames(as.list(cv$settings$setting), cv$settings$loc)
+
+    # parse expected boolean values
+    settings$show_last_updated_date %<>% parse_boolean_txt(default = FALSE)
+
+    return(settings)
   }
   cv$settings <- get_settings_list(cv)
 
@@ -236,7 +250,8 @@ print_text <- function(cv, id, type = c("plain", "subtitle", "title"), post_text
     type,
     subtitle = "### ",
     title = "## ",
-    plain = "")
+    plain = "",
+    "")
 
   text <- dplyr::filter(cv$text_blocks, loc == id) %>%
     dplyr::pull(text)
