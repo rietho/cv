@@ -6,3 +6,4 @@ resume_files/
 README.html
 *_cache/
 *.RDS
+.Renviron
