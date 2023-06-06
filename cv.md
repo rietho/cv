@@ -1,7 +1,7 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2023-05-10"
+date: "2023-06-06"
 params:
   pdf_mode:
     value: false
@@ -153,7 +153,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
 <br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
-<br>Last updated on 2023-05-10.
+<br>Last updated on 2023-06-06.
 
 # Main
 
@@ -192,7 +192,7 @@ About industry experience
 
 Dublin, IE
 
-2020-11 - Current
+2020-11 - 2023-05
 
 - Leading and coaching a global team of (Senior) Business Intelligence Analysts
 - Scaling and driving decision-making for Indeed's Marketing and Go-To-Market Strategie through automation, data pipelines, data analysis, attribution methodology development & enhancement, machine learning, reporting, and dashboards
