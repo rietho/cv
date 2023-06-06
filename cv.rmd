@@ -26,8 +26,9 @@ Tailoring CV for specific applications
 cv_data_url <- "https://docs.google.com/spreadsheets/d/1KcTSyanKHQ1jGnwVd6AxMcb3zXLvt-2RKzsPOfmI5Cw/edit#gid=917338460"
 
 # use url from local .Renviron file instead, if present
-if (length(Sys.getenv("CV_DATA_URL")) > 1) {
+if (nchar(Sys.getenv("CV_DATA_URL")) > 0) {
   cv_data_url <- Sys.getenv("CV_DATA_URL")
+  print(1)
 }
 ```
 
