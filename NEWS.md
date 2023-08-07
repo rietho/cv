@@ -17,11 +17,17 @@ This doc holds news, changes and updates for different versions of the underlyin
 
 - Initial versioned version.
 
+#### de1-1.1.0
+
+- Re-written entry text and descriptions for main work experiences
+
+
 ### EN1 - public english version
 
 #### en1-1.0.0
 
 - Initial versioned version.
+
 
 ### EN2 - private english version
 
