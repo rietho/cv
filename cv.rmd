@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 params:
   pdf_mode:
     value: false
+  version: '1.0' # format: x.y
 output:
   pagedown::html_resume:
     # note: order here matters, the latter overrides the former
@@ -66,8 +67,14 @@ require(cssparser)
 css_root <- cssparser::read_css("dd_cv.css")$`:root`
 ```
 
+```{r parse_versions}
+v_md <- params$version
+v_data <- CV$settings$data_version
+v_txt <- glue::glue("v{v_md}/{v_data}")
+```
 
-```{r}
+
+```{r parse_mode}
 # When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.
 if(params$pdf_mode) {
     cat("
@@ -174,10 +181,12 @@ Disclaimer {#disclaimer}
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
 <br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
-```{r last_updated_date}
-if (CV$settings$show_last_updated_date) {
-  cat(glue::glue("<br>Last updated on {Sys.Date()}."))
+```{r last_updated_date_and_version}
+cat('<br>')
+if (!CV$settings$show_last_updated_date) {
+  cat(glue::glue("Last updated on {Sys.Date()} | "))
 }
+cat(v_txt)
 ```
 
 # Main

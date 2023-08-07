@@ -4,6 +4,7 @@ resume_files/
 .secrets
 .DS_Store
 README.html
+NEWS.html
 *_cache/
 *.RDS
 .Renviron
