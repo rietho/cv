@@ -201,3 +201,12 @@ sup {
 .skill_table tr td:last-child {
   border: none;
 }
+
+@page {
+  @bottom-left {
+    content: counter(page) "/" counter(pages);
+    font-size: 0.7rem;
+    padding-bottom: calc(var(--pagedjs-margin-bottom));
+  }
+}
+

@@ -8,6 +8,7 @@ This doc holds news, changes and updates for different versions of the underlyin
 
 - move disclaimer to last page
 - remove concise option from education
+- add page numbers
 
 #### v1.0.0
 

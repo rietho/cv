@@ -53,7 +53,7 @@ html {
   font-size: var(--root-font-size);
 }
 
-body{
+body {
   width: var(--content-width);
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
@@ -383,7 +383,7 @@ h1, h2{
 
 #disclaimer{
   position: absolute;
-  bottom: 0;
+  bottom: -4.8px;
   right: var(--sidebar-horizontal-padding);
   font-size: 0.6rem;
   font-style: italic;
