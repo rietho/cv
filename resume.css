@@ -156,7 +156,7 @@ h1, h2{
 }
 
 #main h2::after{ /* extends the decorator line */
-  height: calc(var(--row-blocks-padding-top) * 3);
+  height: calc(var(--row-blocks-padding-top) * 2.5);
   position: relative;
   top: calc(-1 * var(--row-blocks-padding-top));
   /* XXX: 0.5px for aligning fx printing */
@@ -260,7 +260,7 @@ h1, h2{
 }
 
 .blocks:last-child .decorator{ /* slightly shortens it */
-  margin-bottom: 0.25in;
+  margin-bottom: 0.0in;
 }
 
 /***** fine-tunes on the details block where the real juice is *****/

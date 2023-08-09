@@ -27,7 +27,7 @@
   --main-color-skillbar-background: #d9d9d9;
 
   /* space at the top of blocks in main section*/
-  --row-blocks-padding-top: 0.2rem;
+  --row-blocks-padding-top: 0.6rem;
 
   /* adjust date column in timeline */
   --date-block-width: 0.55in;
@@ -94,7 +94,7 @@ sup {
 }
 
 .main-block:not(.concise) .details div {
-  padding-top: 0.005rem;
+  padding-top: 0.2rem;
 }
 
 .formerly {
