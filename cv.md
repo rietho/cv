@@ -1,10 +1,11 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2023-06-06"
+date: "2023-08-09"
 params:
   pdf_mode:
     value: false
+  version: '1.0.1' # format: x.y.z
 output:
   pagedown::html_resume:
     # note: order here matters, the latter overrides the former
@@ -21,6 +22,8 @@ Tailoring CV for specific applications
 * if code needs to be adjusted, could be done via a branch or copy of code saved along with CV
 -->
 ```
+
+
 
 
 
@@ -56,7 +59,7 @@ Contact  {#contact}
 <i class='fa fa-github fa-fw'></i> <a href="http://github.com/rietho" target="_blank">github.com/rietho</a><br>
 <i class='fa fa-link fa-fw'></i> <a href="https://gapthemind.info" target="_blank">gapthemind.info</a> (personal blog)<br>
 <i class='fa fa-linkedin fa-fw'></i> <a href="https://www.linkedin.com/in/thomas-r-lieb/" target="_blank">thomas-r-lieb</a><br>
-<i class='fa fa-map-marker fa-fw'></i> Dublin, Ireland<br></p>
+<i class='fa fa-map-marker fa-fw'></i> Hamburg, Germany<br></p>
 
 <!--
 Advanced Tech Skills {#main_tech_skills}
@@ -147,13 +150,9 @@ Languages  {#languages}
 </tr>
 </table>
 
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
-<br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
-<br>Last updated on 2023-06-06.
+<!--
+Move disclaimer from page 1 to end
+-->
 
 # Main
 
@@ -263,11 +262,9 @@ Graz, AT
 
 2016 - 2018
 
-:::concise
 - Master thesis: Organisational and team development concept for expert organisations
 - Passed with distinction
 - Certified Mediator
-:::
 
 
 
@@ -279,11 +276,9 @@ Graz, AT
 
 2006 - 2014
 
-:::concise
 - Master thesis: Statistical Trend Analysis for R&D Projects in Semiconductor Industry for the sensor producer ams-OSRAM AG
 - Passed with distinction
 - Semester abroad at San Diego State University, USA
-:::
 
 ```{=html}
 <!-- These breaks just force a new page so section doesnt get cut off 
@@ -292,3 +287,18 @@ Graz, AT
 <br>
 -->
 ```
+
+
+:::aside
+Aisde {#aside}
+================================================================================
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
+<br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
+<br>v1.0.1/en1-1.0.0
+
+:::
+
