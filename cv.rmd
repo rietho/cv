@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 params:
   pdf_mode:
     value: false
-  version: '1.0' # format: x.y
+  version: '1.0.1' # format: x.y.z
 output:
   pagedown::html_resume:
     # note: order here matters, the latter overrides the former
@@ -175,19 +175,9 @@ cat("\n-------------------------------------------------------------------------
 CV %>% print_languages_table()
 ```
 
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
-<br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
-```{r last_updated_date_and_version}
-cat('<br>')
-if (!CV$settings$show_last_updated_date) {
-  cat(glue::glue("Last updated on {Sys.Date()} | "))
-}
-cat(v_txt)
-```
+<!--
+Move disclaimer from page 1 to end
+-->
 
 # Main
 
@@ -260,10 +250,12 @@ glue_template <- "
 
 {timeline}
 
-:::concise
 {description_bullets}
-:::
 \n\n\n"
+# old
+# :::concise
+# {description_bullets}
+# :::
 CV %<>% print_section('education', glue_template = glue_template)
 ```
 
@@ -274,3 +266,24 @@ CV %<>% print_section('education', glue_template = glue_template)
 <br>
 -->
 ```
+
+
+:::aside
+Aisde {#aside}
+================================================================================
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
+<br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
+```{r last_updated_date_and_version}
+cat('<br>')
+if (!CV$settings$show_last_updated_date) {
+  cat(glue::glue("Last updated on {Sys.Date()} | "))
+}
+cat(v_txt)
+```
+
+:::
+

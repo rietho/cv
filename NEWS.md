@@ -4,6 +4,11 @@ This doc holds news, changes and updates for different versions of the underlyin
 
 ## Code
 
+#### v1.0.1
+
+- move disclaimer to last page
+- remove concise option from education
+
 #### v1.0.0
 
 - Initial versioned version.
