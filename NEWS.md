@@ -4,6 +4,11 @@ This doc holds news, changes and updates for different versions of the underlyin
 
 ## Code
 
+#### v1.0.2
+
+- remove advanced tech skills
+- fix sorting bug
+
 #### v1.0.1
 
 - move disclaimer to last page
@@ -20,16 +25,26 @@ This doc holds news, changes and updates for different versions of the underlyin
 
 ### DE1 - private german version
 
-#### de1-1.0.0
+#### de1-1.2.0
 
-- Initial versioned version.
+- add new job and gap months
+- add newly acquired and deepened skills
 
 #### de1-1.1.0
 
 - Re-written entry text and descriptions for main work experiences
 
+#### de1-1.0.0
+
+- Initial versioned version.
+
 
 ### EN1 - public english version
+
+#### en1-1.2.0
+
+- add new job and gap months
+- add newly acquired and deepened skills
 
 #### en1-1.0.0
 

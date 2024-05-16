@@ -76,7 +76,7 @@ create_CV_object <-  function(data_location,
 
   extract_year <- function(dates){
     date_year <- stringr::str_extract(dates, "(20|19)[0-9]{2}")
-    date_year[is.na(date_year)] <- lubridate::year(lubridate::ymd(Sys.Date())) + 10
+    date_year[is.na(date_year)] <- 9999
 
     date_year
   }
@@ -88,7 +88,7 @@ create_CV_object <-  function(data_location,
     # where no month found:
     # expecting yyyy-mm format ("-" could also be " " or "/)
     date_month[is.na(date_month)] <-
-      stringr::str_extract(date_month[is.na(date_month)], r"{(?<=(20|19)[0-9]{2}(\s|\/|-))(\w+|\d+)}")
+      stringr::str_extract(dates[is.na(date_month)], r"{(?<=(20|19)[0-9]{2}(\s|\/|-))(\w+|\d+)}")
     date_month[is.na(date_month)] <- "1"
 
     paste("1", date_month, extract_year(dates), sep = "-") %>%

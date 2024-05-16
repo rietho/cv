@@ -1,11 +1,11 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2023-08-09"
+date: "2024-05-16"
 params:
   pdf_mode:
     value: false
-  version: '1.0.1' # format: x.y.z
+  version: '1.0.2' # format: x.y.z
 output:
   pagedown::html_resume:
     # note: order here matters, the latter overrides the former
@@ -65,32 +65,7 @@ Contact  {#contact}
 Advanced Tech Skills {#main_tech_skills}
 --------------------------------------------------------------------------------
 -->
-Advanced Tech Skills  {#main_tech_skills}
---------------------------------------------------------------------------------
-<div
-  class = 'skill-bar'
-  style = "background:linear-gradient(to right,
-                                      #274b9f 100%,
-                                      #d9d9d9 100% 100%)"
->R, RStudio, Posit Connect</div>
-<div
-  class = 'skill-bar'
-  style = "background:linear-gradient(to right,
-                                      #274b9f 90%,
-                                      #d9d9d9 90% 100%)"
->Python, Jupyter</div>
-<div
-  class = 'skill-bar'
-  style = "background:linear-gradient(to right,
-                                      #274b9f 90%,
-                                      #d9d9d9 90% 100%)"
->Git, GitLab</div>
-<div
-  class = 'skill-bar'
-  style = "background:linear-gradient(to right,
-                                      #274b9f 90%,
-                                      #d9d9d9 90% 100%)"
->SQL</div>
+
 
 
 <!--
@@ -99,14 +74,23 @@ Other Tech Skills {#other_tech_skills}
 -->
 Other Tech Skills  {#other_tech_skills}
 --------------------------------------------------------------------------------
-<p style='margin-top: -5px;'>- JIRA, Confluence
-- Cloud Technology: AWS, BigQuery
+<p style='margin-top: -5px;'>- R, RStudio, Posit Connect
+- Python, Jupyter
+- SQL
+- JIRA, Confluence
+- Cloud Technology: Google Cloud Platform, BigQuery
 - Snowflake
 - ETL & Data Warehousing
 - APIs
-- CI/CD
-- HTML/CSS, Javascript
+- git, CI/CD (GitLab, GitHub)
+- dbt
+- Airflow
+- SAP (BW, IS-U)
+- Docker, Kubernete
+- Terraform
+- Data Analytics & Visualisiation
 - Tableau
+- HTML/CSS, Javascript
 - MS Office/Google Suite with advanced Excel/Sheets skills</p>
 
 <!--
@@ -184,6 +168,33 @@ About industry experience
 :::
 ```
 -->
+
+### Senior Analytics Consultant
+
+[Energy4U](https://energy4u.org/), IT Consulting
+
+Hamburg, DE
+
+2023-10 - Current
+
+- Consulting and implementation of Data Science projects for the German utilities industry
+- Design, development, and maintenance of Data Warehouses in cloud environments (e.g., Google Cloud Platform) using a wide range of open-source solutions (Python, dbt, Airflow, Terraform)
+- SAP Business Warehouse (BW) creation, maintenance, and design based on various SAP modules such as SAP-ISU
+- Close collaboration with clients from local municipal utilities to multinational energy companies to develop tailored and targeted solutions.
+
+
+
+### Career Break
+
+Travelling to Asia, relocating to Germany and taking some time off
+
+N/A
+
+2023-06 - 2023-09
+
+
+
+
 
 ### Manager Business Intelligence
 
@@ -298,7 +309,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
 <br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
-<br>v1.0.1/en1-1.0.0
+<br>Last updated on 2024-05-16 | v1.0.2/en1-1.2.0
 
 :::
 
