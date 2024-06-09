@@ -1,7 +1,7 @@
 ---
 title: "Thomas Lieb's CV"
 author: Thomas Lieb
-date: "2024-05-16"
+date: "2024-06-09"
 params:
   pdf_mode:
     value: false
@@ -78,8 +78,8 @@ Other Tech Skills  {#other_tech_skills}
 - Python, Jupyter
 - SQL
 - JIRA, Confluence
-- Cloud Technology: Google Cloud Platform, BigQuery
-- Snowflake
+- Cloud Technologies: Google Cloud Platform ([ACE certified](https://www.credly.com/badges/35f58c5f-1ac7-4d87-99fc-43ac459ee6e9/public_url)), AWS
+- BigQuery, Snowflake
 - ETL & Data Warehousing
 - APIs
 - git, CI/CD (GitLab, GitHub)
@@ -309,7 +309,7 @@ Disclaimer {#disclaimer}
 
 Made with the R package [pagedown](https://github.com/rstudio/pagedown){target="_blank"}.
 <br>Source code available on [Github](https://github.com/rietho/cv){target="_blank"}.
-<br>Last updated on 2024-05-16 | v1.0.2/en1-1.2.0
+<br>Last updated on 2024-06-09 | v1.0.2/en1-1.2.1
 
 :::
 
